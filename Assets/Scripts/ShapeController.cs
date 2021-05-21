@@ -13,7 +13,6 @@ public class ShapeController : MonoBehaviour
     private void Start()
     {
         shapes.Add(Shape.ShapeType.Cube, shape);
-        shapes.Add(Shape.ShapeType.Parallelepiped, shape);
     }
 
     public void Create()
