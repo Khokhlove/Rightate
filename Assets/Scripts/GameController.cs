@@ -19,14 +19,14 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        playerController.directionChanged.AddListener(OnDirectionChanged);
+        playerController.animationFinished.AddListener(OnAnimetionFinished);
         shapeController.Create();
         CreateDirectionShapes();
 
         correctSelection.AddListener(Counter.GetInstance().Add);
     }
 
-    public void OnDirectionChanged(PlayerController.Direction dir, Shape currentShape)
+    public void OnAnimetionFinished(PlayerController.Direction dir, Shape currentShape)
     {
         if (CompareShapes(dir, currentShape))
         {

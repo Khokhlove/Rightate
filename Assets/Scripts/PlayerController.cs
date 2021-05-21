@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private Direction direction;
     public ShapeController shapeController;
     public UnityEvent<Direction, Shape> directionChanged;
+    public UnityEvent<Direction, Shape> animationFinished;
+    Coroutine _rotation;
 
     void Update()
     {
@@ -20,14 +22,14 @@ public class PlayerController : MonoBehaviour
     void _Move(Vector3 pos, Vector3 rot)
     {
         directionChanged.Invoke(direction, shapeController.currentShape);
-        StartCoroutine(Rotation(rot, shapeController.currentShape.gameObject));
+        _rotation = StartCoroutine(Rotation(rot, shapeController.currentShape.gameObject));
         StartCoroutine(Movement(pos, shapeController.currentShape.gameObject));
     }
 
     IEnumerator Rotation(Vector3 rot, GameObject shapeObject)
     {
         Vector3 step = (rot - shapeObject.transform.rotation.eulerAngles) / (1 / Time.deltaTime);
-        while (Vector3.Distance(shapeObject.transform.rotation.eulerAngles, rot) >= 0.2)
+        while (Vector3.Distance(shapeObject.transform.rotation.eulerAngles, rot) >= 0.1)
         {
             shapeObject.transform.rotation = Quaternion.Euler(shapeObject.transform.rotation.eulerAngles + step);
             yield return new WaitForEndOfFrame();
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
             shapeObject.transform.position += step;
             yield return new WaitForEndOfFrame();
         }
+        StopCoroutine(_rotation);
+        animationFinished.Invoke(direction, shapeController.currentShape);
     }
     public void Left()
     {
