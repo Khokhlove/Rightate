@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(ShapeController))]
-
 public class GameController : MonoBehaviour
 {
     public List<Vector3> shapesStartPos;

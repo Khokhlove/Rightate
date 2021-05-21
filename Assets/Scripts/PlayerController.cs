@@ -6,12 +6,13 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public enum Direction {Left, Up, Right, Down};
-    Direction direction;
     public ShapeController shapeController;
     public UnityEvent<Direction, Shape> directionChanged;
     public UnityEvent<Direction, Shape> animationFinished;
     [Range(1,3)]
     public float speed;
+
+    Direction direction;
     Coroutine _rotation;
     bool isActive = true;
 
