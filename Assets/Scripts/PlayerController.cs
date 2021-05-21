@@ -6,21 +6,29 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public enum Direction {Left, Up, Right, Down};
-    private Direction direction;
+    Direction direction;
     public ShapeController shapeController;
     public UnityEvent<Direction, Shape> directionChanged;
     public UnityEvent<Direction, Shape> animationFinished;
+    [Range(1,3)]
+    public float speed;
     Coroutine _rotation;
+    bool isActive = true;
 
+    void Start()
+    {
+        animationFinished.AddListener((d, s) => { isActive = true; });
+    }
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.A)) Left();
-        if (Input.GetKeyUp(KeyCode.W)) Up();
-        if (Input.GetKeyUp(KeyCode.D)) Right();
-        if (Input.GetKeyUp(KeyCode.S)) Down();
+            if (Input.GetKeyUp(KeyCode.A) && isActive) Left();
+            if (Input.GetKeyUp(KeyCode.W) && isActive) Up();
+            if (Input.GetKeyUp(KeyCode.D) && isActive) Right();
+            if (Input.GetKeyUp(KeyCode.S) && isActive) Down();
     }
     void _Move(Vector3 pos, Vector3 rot)
     {
+        isActive = false;
         directionChanged.Invoke(direction, shapeController.currentShape);
         _rotation = StartCoroutine(Rotation(rot, shapeController.currentShape.gameObject));
         StartCoroutine(Movement(pos, shapeController.currentShape.gameObject));
@@ -28,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Rotation(Vector3 rot, GameObject shapeObject)
     {
-        Vector3 step = (rot - shapeObject.transform.rotation.eulerAngles) / (1 / Time.deltaTime);
+        Vector3 step = (rot - shapeObject.transform.rotation.eulerAngles) / (1 / (Time.deltaTime * speed));
         while (Vector3.Distance(shapeObject.transform.rotation.eulerAngles, rot) >= 0.1)
         {
             shapeObject.transform.rotation = Quaternion.Euler(shapeObject.transform.rotation.eulerAngles + step);
@@ -37,7 +45,7 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Movement(Vector3 pos, GameObject shapeObject)
     {
-        Vector3 step = (pos - shapeObject.transform.position) / (1 / Time.deltaTime);
+        Vector3 step = (pos - shapeObject.transform.position) / (1 / (Time.deltaTime * speed));
         while (Vector3.Distance(shapeObject.transform.position, pos) >= 0.1)
         {
             shapeObject.transform.position += step;
