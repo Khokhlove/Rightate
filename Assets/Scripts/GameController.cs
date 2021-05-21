@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(ShapeController))]
 
@@ -13,19 +14,26 @@ public class GameController : MonoBehaviour
     public Dictionary<PlayerController.Direction, Shape> directionShapes = new Dictionary<PlayerController.Direction, Shape>();
     public Timer timer;
 
+    public UnityEvent correctSelection = new UnityEvent();
+    public UnityEvent incorrectSelection = new UnityEvent();
+
     private void Start()
     {
         playerController.directionChanged.AddListener(OnDirectionChanged);
         shapeController.Create();
         CreateDirectionShapes();
-        
+
+        correctSelection.AddListener(Counter.GetInstance().Add);
     }
 
-    public void OnDirectionChanged(PlayerController.Direction dir, Shape shape)
+    public void OnDirectionChanged(PlayerController.Direction dir, Shape currentShape)
     {
-        if (CompareShapes(dir, shape))
+        if (CompareShapes(dir, currentShape))
         {
-            Counter.GetInstance().Add();
+            correctSelection.Invoke();
+        } else
+        {
+            incorrectSelection.Invoke();
         }
 
         shapeController.Remove();
@@ -58,11 +66,13 @@ public class GameController : MonoBehaviour
     }
     bool CompareShapes(PlayerController.Direction dir, Shape shape)
     {
-        return true;
+        return directionShapes[dir].Equals(shape);
     }
+
     void Pause()
     {
     }
+
     void Unpause()
     {
     }
