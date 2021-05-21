@@ -31,18 +31,25 @@ public class GameController : MonoBehaviour
     {
         if (directionShapes.Count > 0)
         {
-            foreach (var e in directionShapes)
-            {
-                DestroyImmediate(e.Value);
-            }
+            //foreach (var e in directionShapes)
+            //{
+            //    Destroy(e.Value);
+            //}
 
             directionShapes.Clear();
         }
 
-        directionShapes.Add(PlayerController.Direction.Left, shapes[0]);
-        directionShapes.Add(PlayerController.Direction.Right, shapes[0]);
-        directionShapes.Add(PlayerController.Direction.Up, shapes[0]);
-        directionShapes.Add(PlayerController.Direction.Down, shapes[0]);
+        directionShapes = new Dictionary<PlayerController.Direction, Shape> {
+            { PlayerController.Direction.Left, shapes[0] },
+            { PlayerController.Direction.Right, shapes[0] },
+            { PlayerController.Direction.Up, shapes[0] },
+            { PlayerController.Direction.Down, shapes[0] }
+        };
+
+        //foreach (var e in directionShapes)
+        //{
+        //    directionShapes[e.Key] = Instantiate(e.Value);
+        //}
     }
     bool CompareShapes(PlayerController.Direction dir, Shape shape)
     {
