@@ -22,7 +22,7 @@ public class Counter
 
     public void Add()
     {
-        Score =+ 1;
+        Score += 1;
         scoreChanged?.Invoke(Score);
     }
     public void Sub()

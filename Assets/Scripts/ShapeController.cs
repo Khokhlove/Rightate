@@ -28,7 +28,8 @@ public class ShapeController : MonoBehaviour
     {
         if (currentShape != null)
         {
-            Destroy(currentShape, destroySpeed);
+            Destroy(currentShape.gameObject);
+            currentShape = null;
         }
     }
 }
