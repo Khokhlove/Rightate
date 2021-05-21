@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class CounterUI : MonoBehaviour
 {
     public Text score;
-    public Counter counter;
-
+    
     void Start()
     {
+        Counter counter = Counter.GetInstance();
         counter.scoreChanged.AddListener(OnScoreChanged);
     }
 
@@ -19,6 +19,6 @@ public class CounterUI : MonoBehaviour
     }
     private void OnDestroy()
     {
-        counter.scoreChanged.RemoveListener(OnScoreChanged);
+        Counter.GetInstance().scoreChanged.RemoveListener(OnScoreChanged);
     }
 }

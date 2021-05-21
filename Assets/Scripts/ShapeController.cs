@@ -6,7 +6,7 @@ using System;
 public class ShapeController : MonoBehaviour
 {
     public Shape shape;
-    public float speedDestroy;
+    public float destroySpeed;
     public Dictionary<Shape.ShapeType, Shape> shapes = new Dictionary<Shape.ShapeType, Shape>();
     public Shape currentShape;
 
@@ -25,6 +25,9 @@ public class ShapeController : MonoBehaviour
 
     public void Remove()
     {
-        Destroy(currentShape, speedDestroy);
+        if (currentShape != null)
+        {
+            Destroy(currentShape, destroySpeed);
+        }
     }
 }

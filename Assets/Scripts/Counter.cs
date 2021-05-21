@@ -18,13 +18,12 @@ public class Counter
         get;
         private set;
     }
-    public UnityEvent<int> scoreChanged;
-
+    public UnityEvent<int> scoreChanged = new UnityEvent<int>();
 
     public void Add()
     {
         Score =+ 1;
-        scoreChanged.Invoke(Score);
+        scoreChanged?.Invoke(Score);
     }
     public void Sub()
     {

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        playerController.directionChanged.AddListener(OnDirectionChanged);
         CreateDirectionShapes();
         playerController.shapeController.Create();
     }
@@ -32,7 +33,7 @@ public class GameController : MonoBehaviour
         {
             foreach (var e in directionShapes)
             {
-                Destroy(e.Value);
+                DestroyImmediate(e.Value);
             }
 
             directionShapes.Clear();
