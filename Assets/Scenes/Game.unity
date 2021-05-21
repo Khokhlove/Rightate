@@ -540,8 +540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f155296ae97994c8139994150460fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shape: {fileID: 5470291834102750901, guid: 3819758d037950f45885005344de63f0, type: 3}
   destroySpeed: 0
+  shapes:
+  - {fileID: 5470291834102750901, guid: 3819758d037950f45885005344de63f0, type: 3}
+  - {fileID: 7205244502582099878, guid: 4684da473d1c922478033b00afb73beb, type: 3}
+  - {fileID: -2668565104423335964, guid: 036415d0af297e340bbdfd68b69f3035, type: 3}
+  - {fileID: 7924998096206638487, guid: 0da8d73d660d6bf419f37e4e3c3cc6a6, type: 3}
   currentShape: {fileID: 0}
 --- !u!114 &912977210
 MonoBehaviour:
@@ -555,11 +559,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11d36e6766805c468c1a7f6fb880708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapes:
-  - {fileID: 5470291834102750901, guid: 3819758d037950f45885005344de63f0, type: 3}
-  - {fileID: 5470291834102750901, guid: 3819758d037950f45885005344de63f0, type: 3}
-  - {fileID: 5470291834102750901, guid: 3819758d037950f45885005344de63f0, type: 3}
-  - {fileID: 5470291834102750901, guid: 3819758d037950f45885005344de63f0, type: 3}
+  shapesStartPos:
+  - {x: -1.5, y: -1, z: 0}
+  - {x: 0, y: -1, z: 1.5}
+  - {x: 1.5, y: -1, z: 0}
+  - {x: 0, y: -1, z: -1.5}
+  shapeController: {fileID: 912977209}
   playerController: {fileID: 205170619}
   timer: {fileID: 912977206}
 --- !u!1 &1057233920

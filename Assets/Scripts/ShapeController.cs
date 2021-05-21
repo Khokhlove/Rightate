@@ -1,26 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class ShapeController : MonoBehaviour
 {
-    public Shape shape;
     public float destroySpeed;
-    public Dictionary<Shape.ShapeType, Shape> shapes = new Dictionary<Shape.ShapeType, Shape>();
+    public List<Shape> shapes = new List<Shape>();
     public Shape currentShape;
 
-    private void Start()
-    {
-        shapes.Add(Shape.ShapeType.Cube, shape);
-        shapes.Add(Shape.ShapeType.Parallelepiped, shape);
-    }
-
     public void Create()
-    {
-        int shapeLenght = Enum.GetNames(typeof (Shape.ShapeType)).Length;     
-        int shapeId = UnityEngine.Random.Range(0, shapeLenght);
-        GameObject inst = Instantiate(shapes[(Shape.ShapeType)shapeId].gameObject);
+    {        
+        int shapeId = UnityEngine.Random.Range(0, shapes.Count);
+        GameObject inst = Instantiate(shapes[shapeId].gameObject);
         currentShape = inst.GetComponent<Shape>();
     }
 
@@ -28,7 +20,7 @@ public class ShapeController : MonoBehaviour
     {
         if (currentShape != null)
         {
-            Destroy(currentShape.gameObject);
+            Destroy(currentShape.gameObject, destroySpeed);
             currentShape = null;
         }
     }
