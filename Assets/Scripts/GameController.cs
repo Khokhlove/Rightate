@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
         CreateDirectionShapes();
 
         correctSelection.AddListener(Counter.GetInstance().Add);
+        incorrectSelection.AddListener(Counter.GetInstance().Sub);
     }
 
     public void OnAnimetionFinished(PlayerController.Direction dir, Shape currentShape)

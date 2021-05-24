@@ -10,6 +10,6 @@ public class TimerUI : MonoBehaviour
 
     public void OnTimeChanged(float newTime)
     {
-        time.text = newTime.ToString();
+        time.text = newTime.ToString("0.0");
     }
 }

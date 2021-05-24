@@ -27,8 +27,9 @@ public class Counter
     }
     public void Sub()
     {
-        if (Score != 0)
-            Score = -1;
+        Score -= 1;
+        if (Score < 0)
+            Score = 0;
         scoreChanged.Invoke(Score);
     }
 
