@@ -55,13 +55,13 @@ public class GameController : MonoBehaviour
         {
             int id = UnityEngine.Random.Range(0, shapeController.shapes.Count);
             Shape tempShape = shapeController.shapes[id];
-            GameObject inst = Instantiate(tempShape.gameObject, shapesStartPos[(int)e], Quaternion.identity);
+            GameObject inst = Instantiate(tempShape.gameObject, shapesStartPos[(int)e], Quaternion.identity, transform);
             directionShapes.Add((PlayerController.Direction)e, inst.GetComponent<Shape>());
         }
 
         int correctShapeId = UnityEngine.Random.Range(0, directionShapes.Count);
         Destroy(directionShapes[(PlayerController.Direction)correctShapeId].gameObject);
-        directionShapes[(PlayerController.Direction)correctShapeId] = Instantiate(shapeController.currentShape, shapesStartPos[correctShapeId], Quaternion.identity);
+        directionShapes[(PlayerController.Direction)correctShapeId] = Instantiate(shapeController.currentShape, shapesStartPos[correctShapeId], Quaternion.identity, transform);
     }
     bool CompareShapes(PlayerController.Direction dir, Shape shape)
     {

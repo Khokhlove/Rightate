@@ -12,7 +12,7 @@ public class ShapeController : MonoBehaviour
     public void Create()
     {        
         int shapeId = UnityEngine.Random.Range(0, shapes.Count);
-        GameObject inst = Instantiate(shapes[shapeId].gameObject);
+        GameObject inst = Instantiate(shapes[shapeId].gameObject, transform);
         currentShape = inst.GetComponent<Shape>();
     }
 
