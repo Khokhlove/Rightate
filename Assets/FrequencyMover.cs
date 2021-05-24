@@ -8,7 +8,7 @@ using UnityEngine;
 public class FrequencyMover : MonoBehaviour
 {
     
-    public int leftBorder = 90;
+    public int offset = 90;
     [Range(1, 10)]
     public float aplifier = 10f;
 
@@ -26,7 +26,7 @@ public class FrequencyMover : MonoBehaviour
         float[] spectrum = new float[1024];
         audio.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
 
-        List<float> tempSpectrum = spectrum.ToList().GetRange(leftBorder, leftBorder + 100);
+        List<float> tempSpectrum = spectrum.ToList().GetRange(offset, offset + 100);
         Move(tempSpectrum);
     }
 

@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 911543037}
   - component: {fileID: 911543040}
   - component: {fileID: 911543038}
+  - component: {fileID: 911543041}
   m_Layer: 0
   m_Name: '[CubesBackground]'
   m_TagString: Untagged
@@ -515,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27958db5d226dfa45b288b2c532be364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBorder: 90
+  offset: 0
   aplifier: 10
 --- !u!4 &911543039
 Transform:
@@ -543,8 +544,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e21dc1fa8b9418408e6e25bcc255153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 7673717155123827269, guid: 3819758d037950f45885005344de63f0, type: 3}
+  template: {fileID: 2145933589343193132, guid: 3cca634ee497e0a42a69db584f912b8d, type: 3}
   cubes: []
+--- !u!114 &911543041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911543036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1612ea222067ba94e936467cbe0cd27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: fac02b5a66003d34bb02f90ae84e8886, type: 2}
+  colors:
+  - {r: 0.21813813, g: 0.8113208, b: 0.7495674, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.12629843, g: 1, b: 0, a: 1}
+  - {r: 0.06587076, g: 0, b: 1, a: 1}
+  amplifier: 0.6
 --- !u!1 &953141413
 GameObject:
   m_ObjectHideFlags: 0
