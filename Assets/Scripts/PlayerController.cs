@@ -6,9 +6,11 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public enum Direction {Left, Up, Right, Down};
+    public GameController gameController;
     public ShapeController shapeController;
     public UnityEvent<Direction, Shape> directionChanged;
     public UnityEvent<Direction, Shape> animationFinished;
+    public AnimationCurve moveCurve;
     [Range(1,3)]
     public float speed;
 
@@ -58,22 +60,30 @@ public class PlayerController : MonoBehaviour
     public void Left()
     {
         direction = Direction.Left;
-        _Move(new Vector3(-1, 0, 0), new Vector3(0,0,90));
+        Vector3 dir = gameController.shapesStartPos[(int)Direction.Left];
+        dir.y = 0;
+        _Move(dir, new Vector3(0,0,90));
     }
     public void Up()
     {
         direction = Direction.Up;
-        _Move(new Vector3(0, 0, 1), new Vector3(90, 0, 0));
+        Vector3 dir = gameController.shapesStartPos[(int)Direction.Up];
+        dir.y = 0f;
+        _Move(dir, new Vector3(90, 0, 0));
     }
     public void Right()
     {
         direction = Direction.Right;
-        _Move(new Vector3(1, 0, 0), new Vector3(0, 0, -90));
+        Vector3 dir = gameController.shapesStartPos[(int)Direction.Right];
+        dir.y = 0f;
+        _Move(dir, new Vector3(0, 0, -90));
     }
     public void Down()
     {
         direction = Direction.Down;
-        _Move(new Vector3(0, 0, -1), new Vector3(-90, 0, 0));
+        Vector3 dir = gameController.shapesStartPos[(int)Direction.Down];
+        dir.y = 0f;
+        _Move(dir, new Vector3(-90, 0, 0));
     }
 
 }

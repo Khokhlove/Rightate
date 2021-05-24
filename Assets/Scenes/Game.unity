@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11843ae59b5a43a4d87e1c45f867b646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 912977210}
   shapeController: {fileID: 205170621}
   directionChanged:
     m_PersistentCalls:
@@ -160,6 +161,12 @@ MonoBehaviour:
   animationFinished:
     m_PersistentCalls:
       m_Calls: []
+  moveCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   speed: 3
 --- !u!4 &205170620
 Transform:
