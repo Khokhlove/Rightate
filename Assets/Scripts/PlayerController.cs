@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public UnityEvent<Direction, Shape> directionChanged;
     public UnityEvent<Direction, Shape> animationFinished;
     public AnimationCurve moveCurve;
-    [Range(1,3)]
+    [Range(0.1f ,3)]
     public float speed;
 
     Direction direction;
@@ -39,19 +40,24 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Rotation(Vector3 rot, GameObject shapeObject)
     {
-        Vector3 step = (rot - shapeObject.transform.rotation.eulerAngles) / (1 / (Time.deltaTime * speed));
+        float time = 0;
         while (Vector3.Distance(shapeObject.transform.rotation.eulerAngles, rot) >= 0.1)
         {
-            shapeObject.transform.rotation = Quaternion.Euler(shapeObject.transform.rotation.eulerAngles + step);
+            float value = moveCurve.Evaluate(time * speed);
+            shapeObject.transform.rotation = Quaternion.Euler(rot * value);
+            time += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
     }
     IEnumerator Movement(Vector3 pos, GameObject shapeObject)
     {
-        Vector3 step = (pos - shapeObject.transform.position) / (1 / (Time.deltaTime * speed));
+        float time = 0;
         while (Vector3.Distance(shapeObject.transform.position, pos) >= 0.1)
         {
-            shapeObject.transform.position += step;
+            float value = moveCurve.Evaluate(time * speed);
+
+            shapeObject.transform.position = pos * value;
+            time += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         StopCoroutine(_rotation);
