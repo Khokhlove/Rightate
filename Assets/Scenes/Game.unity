@@ -596,6 +596,7 @@ MonoBehaviour:
   shapeController: {fileID: 205170621}
   playerController: {fileID: 205170619}
   timer: {fileID: 912977206}
+  particleWrapper: {fileID: 0}
   correctSelection:
     m_PersistentCalls:
       m_Calls: []

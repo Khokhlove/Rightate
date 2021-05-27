@@ -110,4 +110,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  particle: {fileID: 2806025407077511718, guid: 8cdf69e320ef1914397471c4dfec5a94, type: 3}
+  particle: {fileID: 2806025407077511718, guid: 0d1ad7b4c4cf2c84393ba65e22ca01f9, type: 3}
+  particleInstance: {fileID: 0}

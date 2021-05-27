@@ -24,7 +24,14 @@ public class GameController : MonoBehaviour
         CreateDirectionShapes();
 
         correctSelection.AddListener(Counter.GetInstance().Add);
+        correctSelection.AddListener(() => {
+            SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.correct, shapeController.currentShape.transform.position);
+        });
+
         incorrectSelection.AddListener(Counter.GetInstance().Sub);
+        incorrectSelection.AddListener(() => {
+            SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.incorrect, shapeController.currentShape.transform.position);
+        });
     }
 
     public void OnAnimetionFinished(PlayerController.Direction dir, Shape currentShape)
@@ -66,10 +73,10 @@ public class GameController : MonoBehaviour
     {
         Dictionary<PlayerController.Direction, Vector3> rotationVector = new Dictionary<PlayerController.Direction, Vector3>
         {
-            { PlayerController.Direction.Left, new Vector3(0, -90, 0) },
-            { PlayerController.Direction.Right, new Vector3(0, 90, 0) },
-            { PlayerController.Direction.Up, new Vector3(0, 0, 0) },
-            { PlayerController.Direction.Down, new Vector3(0, 180, 0) }
+            { PlayerController.Direction.Left, new Vector3(90, -90, 0) },
+            { PlayerController.Direction.Right, new Vector3(90, 90, 0) },
+            { PlayerController.Direction.Up, new Vector3(90, 0, 0) },
+            { PlayerController.Direction.Down, new Vector3(90, 180, 0) }
         };
 
         return Quaternion.Euler(rotationVector[direction]);
