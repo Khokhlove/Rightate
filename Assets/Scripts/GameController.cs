@@ -45,19 +45,34 @@ public class GameController : MonoBehaviour
     {
         ClearDirectionShapes();
         particleWrapper = new GameObject("[ParticleWrapper]");
-        foreach (var e in Enum.GetValues(typeof(PlayerController.Direction)))
+        foreach (PlayerController.Direction e in Enum.GetValues(typeof(PlayerController.Direction)))
         {
             int id = UnityEngine.Random.Range(0, shapeController.shapes.Count);
             Shape tempShape = shapeController.shapes[id];
-            GameObject inst = Instantiate(tempShape.particle.gameObject, shapesStartPos[(int)e], Quaternion.identity,particleWrapper.transform);
+            GameObject inst = Instantiate(tempShape.particle.gameObject, shapesStartPos[(int)e], GetRotationFromDirection(e), particleWrapper.transform);
             tempShape.particleInstance = inst;
-            directionShapes.Add((PlayerController.Direction)e, tempShape);
+            directionShapes.Add(e, tempShape);
         }
-        int correctShapeId = UnityEngine.Random.Range(0, directionShapes.Count);
-        Destroy(directionShapes[(PlayerController.Direction)correctShapeId].particleInstance);
+
+        PlayerController.Direction correctDirection = (PlayerController.Direction)UnityEngine.Random.Range(0, directionShapes.Count);
+        
+        Destroy(directionShapes[correctDirection].particleInstance);
         Shape correctShape = shapeController.currentShape;
-        GameObject correctShapeParticle = Instantiate(correctShape.particle.gameObject, shapesStartPos[correctShapeId], Quaternion.identity, particleWrapper.transform);
-        directionShapes[(PlayerController.Direction)correctShapeId] = correctShape;
+        GameObject correctShapeParticle = Instantiate(correctShape.particle.gameObject, shapesStartPos[(int)correctDirection], GetRotationFromDirection(correctDirection), particleWrapper.transform);
+        directionShapes[correctDirection] = correctShape;
+    }
+
+    Quaternion GetRotationFromDirection(PlayerController.Direction direction)
+    {
+        Dictionary<PlayerController.Direction, Vector3> rotationVector = new Dictionary<PlayerController.Direction, Vector3>
+        {
+            { PlayerController.Direction.Left, new Vector3(0, -90, 0) },
+            { PlayerController.Direction.Right, new Vector3(0, 90, 0) },
+            { PlayerController.Direction.Up, new Vector3(0, 0, 0) },
+            { PlayerController.Direction.Down, new Vector3(0, 180, 0) }
+        };
+
+        return Quaternion.Euler(rotationVector[direction]);
     }
 
     private void ClearDirectionShapes()
