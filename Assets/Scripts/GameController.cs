@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     public Dictionary<PlayerController.Direction, Shape> directionShapes = new Dictionary<PlayerController.Direction, Shape>();
     public Timer timer;
 
+    public GameObject particleWrapper;
+
     public UnityEvent correctSelection = new UnityEvent();
     public UnityEvent incorrectSelection = new UnityEvent();
 
@@ -41,28 +43,36 @@ public class GameController : MonoBehaviour
     }
     void CreateDirectionShapes()
     {
-        if (directionShapes.Count > 0)
-        {
-            foreach (var e in directionShapes)
-            {
-                Destroy(e.Value.gameObject);
-            }
-
-            directionShapes.Clear();
-        }
-
+        ClearDirectionShapes();
+        particleWrapper = new GameObject("[ParticleWrapper]");
         foreach (var e in Enum.GetValues(typeof(PlayerController.Direction)))
         {
             int id = UnityEngine.Random.Range(0, shapeController.shapes.Count);
             Shape tempShape = shapeController.shapes[id];
-            GameObject inst = Instantiate(tempShape.gameObject, shapesStartPos[(int)e], Quaternion.identity, transform);
-            directionShapes.Add((PlayerController.Direction)e, inst.GetComponent<Shape>());
+            GameObject inst = Instantiate(tempShape.particle.gameObject, shapesStartPos[(int)e], Quaternion.identity,particleWrapper.transform);
+            tempShape.particleInstance = inst;
+            directionShapes.Add((PlayerController.Direction)e, tempShape);
         }
-
         int correctShapeId = UnityEngine.Random.Range(0, directionShapes.Count);
-        Destroy(directionShapes[(PlayerController.Direction)correctShapeId].gameObject);
-        directionShapes[(PlayerController.Direction)correctShapeId] = Instantiate(shapeController.currentShape, shapesStartPos[correctShapeId], Quaternion.identity, transform);
+        Destroy(directionShapes[(PlayerController.Direction)correctShapeId].particleInstance);
+        Shape correctShape = shapeController.currentShape;
+        GameObject correctShapeParticle = Instantiate(correctShape.particle.gameObject, shapesStartPos[correctShapeId], Quaternion.identity, particleWrapper.transform);
+        directionShapes[(PlayerController.Direction)correctShapeId] = correctShape;
     }
+
+    private void ClearDirectionShapes()
+    {
+        if (directionShapes.Count > 0)
+        {
+            foreach (var e in directionShapes)
+            {      
+                e.Value.particleInstance = null;
+            }
+            DestroyImmediate(particleWrapper);
+            directionShapes.Clear();
+        }
+    }
+
     bool CompareShapes(PlayerController.Direction dir, Shape shape)
     {
         return directionShapes[dir].Equals(shape);

@@ -6,6 +6,8 @@ public class Shape: MonoBehaviour
 {
     public enum ShapeType {Cube, Sphere, Cylinder, Parallelepiped};
     public ShapeType type;
+    public ParticleSystem particle;
+    public GameObject particleInstance;
 
     public override bool Equals(object shape)
     {
