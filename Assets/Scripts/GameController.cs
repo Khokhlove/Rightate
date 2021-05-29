@@ -61,7 +61,8 @@ public class GameController : MonoBehaviour
             directionShapes.Add(e, tempShape);
         }
 
-        PlayerController.Direction correctDirection = (PlayerController.Direction)UnityEngine.Random.Range(0, directionShapes.Count);
+        PlayerController.Direction correctDirection;
+        correctDirection = (PlayerController.Direction)UnityEngine.Random.Range(0, directionShapes.Count);
         
         Destroy(directionShapes[correctDirection].particleInstance);
         Shape correctShape = shapeController.currentShape;

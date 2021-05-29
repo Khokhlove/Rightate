@@ -4,17 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class LoadingCircleAnimator : MonoBehaviour
+public class AnimationTimerImage : MonoBehaviour
 {
-    [Header("Привязка элементов:")]
-    [Tooltip("Изображения для поялвения, масштабирования и покраски:")]
-    public Image image;
-    [Tooltip("RectTransform для осуществленрия поворота:")]
-    public RectTransform rt;
-    [Tooltip("Привязка TextBox для прогрузки полоски:")]
-    public Text timerText;
-    [Space]
-
+    
+    public GameObject imageObject;
+    [SerializeField] [Range(0, 1)]  private float animationSpeed;
+    private Image image;
+    private RectTransform rectTranform;
+    
     [Header("Включение и отключение функций:")]
     public bool appear = false;
     public bool appearTime = false;
@@ -31,9 +28,6 @@ public class LoadingCircleAnimator : MonoBehaviour
         new Color32(255, 0, 0, 255)
     };
 
-    [Header("Регулировщик скорости:")]
-    [Range(0, 1)]
-    public float speed;
 
 
     float difference;
@@ -50,7 +44,9 @@ public class LoadingCircleAnimator : MonoBehaviour
 
     void Start()
     {
-        difference = rt.localScale.x;
+        image = imageObject.GetComponent<Image>();
+        rectTranform = imageObject.GetComponent<RectTransform>();
+        difference = rectTranform.localScale.x;
         StartCoroutine(Animate());
     }
 
@@ -62,22 +58,21 @@ public class LoadingCircleAnimator : MonoBehaviour
             if (scale) Scale();
             if (rotation) Rotate();
             if (paint) Paint();
-            if (appearTime) AppearTime();
             yield return new WaitForEndOfFrame();
         }
     }
 
     void Scale()
     {
-        if (rt.localScale.x - difference >= 1)
+        if (rectTranform.localScale.x - difference >= 1)
             reverseScale = true;
-        if (rt.localScale.x - difference < 0)
+        if (rectTranform.localScale.x - difference < 0)
             reverseScale = false;
 
         if (reverseScale == false)
-            rt.localScale = new Vector3(rt.localScale.x + speed * Time.deltaTime, rt.localScale.y + speed * Time.deltaTime);
+            rectTranform.localScale = new Vector3(rectTranform.localScale.x + animationSpeed * Time.deltaTime, rectTranform.localScale.y + animationSpeed * Time.deltaTime);
         if (reverseScale == true)
-            rt.localScale = new Vector3(rt.localScale.x - speed * Time.deltaTime, rt.localScale.y - speed * Time.deltaTime);
+            rectTranform.localScale = new Vector3(rectTranform.localScale.x - animationSpeed * Time.deltaTime, rectTranform.localScale.y - animationSpeed * Time.deltaTime);
     }
     void Appear()
     {
@@ -93,15 +88,15 @@ public class LoadingCircleAnimator : MonoBehaviour
         }
 
         if (reverseAppear == false)
-            image.fillAmount = image.fillAmount + speed * Time.deltaTime;
+            image.fillAmount = image.fillAmount + animationSpeed * Time.deltaTime;
         else
-            image.fillAmount = image.fillAmount - speed * Time.deltaTime;
+            image.fillAmount = image.fillAmount - animationSpeed * Time.deltaTime;
     }
 
     void Rotate()
     {
         float f = Mathf.Lerp(200, 800, image.fillAmount);
-        rt.localRotation = Quaternion.Euler(new Vector3(0, 0, rt.localRotation.eulerAngles.z + speed * f * Time.deltaTime));
+        rectTranform.localRotation = Quaternion.Euler(new Vector3(0, 0, rectTranform.localRotation.eulerAngles.z + animationSpeed * f * Time.deltaTime));
     }
 
     void Paint()
@@ -137,16 +132,6 @@ public class LoadingCircleAnimator : MonoBehaviour
             initColor2 = col[r2];
         }
     }
-    void AppearTime()
-    {
-        float f;
-        Text t = timerText;
 
-        if (t != null)
-        {
-            float.TryParse(t.text, out f);
-            image.fillAmount = f / 60;
-        }
-    }
 
 }

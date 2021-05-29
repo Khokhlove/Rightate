@@ -29,5 +29,10 @@ public class Timer : MonoBehaviour
         time += t;
         timeChanged.Invoke(time);
     }
+    public void SubTime(float t)
+    {
+        time -= t;
+        timeChanged.Invoke(time);
+    }
 
 }
