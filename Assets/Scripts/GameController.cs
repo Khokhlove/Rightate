@@ -52,21 +52,26 @@ public class GameController : MonoBehaviour
     {
         ClearDirectionShapes();
         particleWrapper = new GameObject("[ParticleWrapper]");
-        foreach (PlayerController.Direction e in Enum.GetValues(typeof(PlayerController.Direction)))
-        {
-            int id = UnityEngine.Random.Range(0, shapeController.shapes.Count);
-            Shape tempShape = shapeController.shapes[id];
-            GameObject inst = Instantiate(tempShape.particle.gameObject, shapesStartPos[(int)e], GetRotationFromDirection(e), particleWrapper.transform);
-            tempShape.particleInstance = inst;
-            directionShapes.Add(e, tempShape);
-        }
+        var directions = Enum.GetValues(typeof(PlayerController.Direction));
 
         PlayerController.Direction correctDirection;
-        correctDirection = (PlayerController.Direction)UnityEngine.Random.Range(0, directionShapes.Count);
-        
-        Destroy(directionShapes[correctDirection].particleInstance);
+        correctDirection = (PlayerController.Direction)UnityEngine.Random.Range(0, directions.Length);
+
+        foreach (PlayerController.Direction e in directions)
+        {
+            if (!e.Equals(correctDirection))
+            {
+                int id = UnityEngine.Random.Range(0, shapeController.shapes.Count);
+                Shape tempShape = shapeController.shapes[id];
+                GameObject inst = Instantiate(tempShape.particle.gameObject, shapesStartPos[(int)e], GetRotationFromDirection(e), particleWrapper.transform);
+                tempShape.particleInstance = inst;
+                directionShapes.Add(e, tempShape);
+            }
+        }
+
         Shape correctShape = shapeController.currentShape;
         GameObject correctShapeParticle = Instantiate(correctShape.particle.gameObject, shapesStartPos[(int)correctDirection], GetRotationFromDirection(correctDirection), particleWrapper.transform);
+
         directionShapes[correctDirection] = correctShape;
     }
 
