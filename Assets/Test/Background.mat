@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Background
-  m_Shader: {fileID: -6465566751694194690, guid: c62fcee381f9ddc4aa9b5e238bb09d70, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: f9f6f58e1a71e53419d379861cadb542, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _EMISSION
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
@@ -81,6 +81,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_692d08947d4144e4bf7296c223b4291b_Texture_1:
+        m_Texture: {fileID: 2800000, guid: e7f79fd4d939818498b896a64ac2ae80, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_abef0e1dc54b4b468900fc2a95e74e0f_Texture_1:
         m_Texture: {fileID: 2800000, guid: e7f79fd4d939818498b896a64ac2ae80, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
