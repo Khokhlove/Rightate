@@ -85,7 +85,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_abef0e1dc54b4b468900fc2a95e74e0f_Texture_1:
-        m_Texture: {fileID: 2800000, guid: e7f79fd4d939818498b896a64ac2ae80, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6118b6cb45dd7f44eae0d998d6dcac66, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_f0e84a3c223f47eca646a5dcc55eb6cd_Texture_1:
@@ -158,7 +158,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_c0bbd533883d46729e000130696089fb: {r: 1, g: 1, b: 1, a: 0}
+    - Color_c0bbd533883d46729e000130696089fb: {r: 0.9622642, g: 0, b: 0, a: 0}
+    - Vector2_0435b20932104a17ada3e71dae615c98: {r: 0.5, g: 0.54, b: 0, a: 0}
+    - Vector2_1a040468431b4cca83fe343ac20467f8: {r: 100, g: 100, b: 0, a: 0}
     - Vector2_bb65b78615a14f8da8b683c1e04228fe: {r: 100, g: 100, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
