@@ -9,6 +9,16 @@ public class Timer : MonoBehaviour
 
     public UnityEvent<float> timeChanged;
     public UnityEvent timeIsUp;
+    private static Timer instance;
+    public static Timer GetInstance()
+    {
+        return instance;
+    }
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void FixedUpdate()
     {
@@ -24,13 +34,17 @@ public class Timer : MonoBehaviour
         }
         timeChanged.Invoke(time);
     }
-    public void AddTime(float t)
+    public void AddTime(float t = 1)
     {
         time += t;
         timeChanged.Invoke(time);
     }
-    public void SubTime(float t)
+    public void SubTime(float t = 2)
     {
+        if (time <= 0)
+        {
+            time = 0;
+        }
         time -= t;
         timeChanged.Invoke(time);
     }

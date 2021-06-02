@@ -24,11 +24,14 @@ public class GameController : MonoBehaviour
         CreateDirectionShapes();
 
         correctSelection.AddListener(Counter.GetInstance().Add);
+       // correctSelection.AddListener(() => timer.AddTime(1f));
         correctSelection.AddListener(() => {
             SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.correct, shapeController.currentShape.transform.position);
         });
 
         incorrectSelection.AddListener(Counter.GetInstance().Sub);
+        incorrectSelection.AddListener(() => AudioController.GetInstance().ShiftTrack());
+        incorrectSelection.AddListener(() => timer.SubTime(2));
         incorrectSelection.AddListener(() => {
             SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.incorrect, shapeController.currentShape.transform.position);
         });
