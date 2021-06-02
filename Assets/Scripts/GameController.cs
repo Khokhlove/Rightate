@@ -17,11 +17,14 @@ public class GameController : MonoBehaviour
     public UnityEvent correctSelection = new UnityEvent();
     public UnityEvent incorrectSelection = new UnityEvent();
 
+    private AudioController audioController;
+
     private void Start()
     {
         playerController.animationFinished.AddListener(OnAnimetionFinished);
         shapeController.Create();
         CreateDirectionShapes();
+        audioController = AudioController.GetInstance();
 
         correctSelection.AddListener(Counter.GetInstance().Add);
        // correctSelection.AddListener(() => timer.AddTime(1f));
@@ -30,7 +33,8 @@ public class GameController : MonoBehaviour
         });
 
         incorrectSelection.AddListener(Counter.GetInstance().Sub);
-        incorrectSelection.AddListener(() => AudioController.GetInstance().ShiftTrack());
+        incorrectSelection.AddListener(() => audioController.ShiftTrack());
+        incorrectSelection.AddListener(() => audioController.PlayMissClick());
         incorrectSelection.AddListener(() => timer.SubTime(2));
         incorrectSelection.AddListener(() => {
             SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.incorrect, shapeController.currentShape.transform.position);

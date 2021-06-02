@@ -4,6 +4,8 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public AudioSource music;
+    public AudioSource sounds;
+    public AudioClip missClick;
     Timer timer;
     private static AudioController instance;
     void Awake()
@@ -23,6 +25,11 @@ public class AudioController : MonoBehaviour
     public void ShiftTrack(float position = 2)
     {
         music.time = music.time + position;
+    }
+    public void PlayMissClick()
+    {
+        sounds.clip = missClick;
+        sounds.Play();
     }
 
 }
