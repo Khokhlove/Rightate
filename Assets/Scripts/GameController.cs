@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public ShapeController shapeController;
     public PlayerController playerController;
     public Dictionary<PlayerController.Direction, Shape> directionShapes = new Dictionary<PlayerController.Direction, Shape>();
-    public Timer timer;
+    public CustomTimer.Timer timer;
 
     public GameObject particleWrapper;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IsEnabledScripts : MonoBehaviour
 {
-    public Timer timer;
+    public CustomTimer.Timer timer;
 
     private void Start()
     {
