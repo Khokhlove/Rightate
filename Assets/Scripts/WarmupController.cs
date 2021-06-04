@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class WarmupController : MonoBehaviour
 {
-    public Canvas warmupUI;
-    public Canvas gameUI;
+    public GameObject warmupUI;
+    public GameObject gameUI;
     // public AudioController audioController;
     public bool warmup = true;
 
