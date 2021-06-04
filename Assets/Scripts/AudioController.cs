@@ -16,13 +16,18 @@ public class AudioController : MonoBehaviour
     }
     void Start()
     {
-        SetBackgroundMusic(backgroundMusic);
+        //SetMusic(backgroundMusic); 
+    }
+
+    public void SetMusic(AudioTrack track)
+    {
+        SetBackgroundMusic(track);
         music.Play();
         timer = CustomTimer.Timer.GetInstance();
         timer.time = music.clip.length;
     }
 
-    public void SetBackgroundMusic(AudioTrack track)
+    void SetBackgroundMusic(AudioTrack track)
     {
         music.clip = track.track;
     }
