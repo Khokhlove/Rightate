@@ -11,16 +11,16 @@ namespace CustomTimer
 
         public UnityEvent<float> timeChanged;
         public UnityEvent timeIsUp;
-        private static Timer instance;
-        public static Timer GetInstance()
-        {
-            return instance;
-        }
+        //private static Timer instance;
+        //public static Timer GetInstance()
+        //{
+        //    return instance;
+        //}
 
-        void Awake()
-        {
-            instance = this;
-        }
+        //void Awake()
+        //{
+        //    instance = this;
+        //}
 
         void FixedUpdate()
         {

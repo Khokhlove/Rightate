@@ -7,24 +7,29 @@ public class AudioController : MonoBehaviour
     public AudioSource sounds;
     public AudioClip missClick;
     public AudioTrack backgroundMusic;
+    public CustomTimer.Timer timer;
+    public CustomTimer.Timer warmupTimer;
 
-    CustomTimer.Timer timer;
     private static AudioController instance;
+
     void Awake()
     {
         instance = this;
     }
     void Start()
     {
-        //SetMusic(backgroundMusic); 
+        #if UNITY_EDITOR
+        SetMusic(backgroundMusic);
+        #endif
     }
 
     public void SetMusic(AudioTrack track)
     {
         SetBackgroundMusic(track);
         music.Play();
-        timer = CustomTimer.Timer.GetInstance();
-        timer.time = music.clip.length;
+        //timer = CustomTimer.Timer.GetInstance();
+        warmupTimer.time = track.warmupTime;
+        timer.time = music.clip.length - track.warmupTime;
     }
 
     void SetBackgroundMusic(AudioTrack track)
@@ -40,6 +45,11 @@ public class AudioController : MonoBehaviour
     public void ShiftTrack(float position = 2)
     {
         music.time = music.time + position;
+    }
+
+    public void SetTrackPos(float position)
+    {
+        music.time = position;
     }
     public void PlayMissClick()
     {

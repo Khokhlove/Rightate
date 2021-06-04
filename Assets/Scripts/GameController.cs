@@ -25,17 +25,26 @@ public class GameController : MonoBehaviour
         shapeController.Create();
         CreateDirectionShapes();
         audioController = AudioController.GetInstance();
+        WarmupController warmupController = WarmupController.GetInstance();
 
         correctSelection.AddListener(Counter.GetInstance().Add);
-       // correctSelection.AddListener(() => timer.AddTime(1f));
+        // correctSelection.AddListener(() => timer.AddTime(1f));
         correctSelection.AddListener(() => {
             SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.correct, shapeController.currentShape.transform.position);
         });
 
         incorrectSelection.AddListener(Counter.GetInstance().Sub);
         incorrectSelection.AddListener(() => audioController.ShiftTrack());
-        incorrectSelection.AddListener(() => audioController.PlayMissClick());
-        incorrectSelection.AddListener(() => timer.SubTime(2));
+        incorrectSelection.AddListener(() =>
+        {
+            if (!warmupController.warmup)
+                audioController.PlayMissClick();
+        });
+        incorrectSelection.AddListener(() =>
+        {
+            if (!warmupController.warmup)
+                timer.SubTime(2);
+        });
         incorrectSelection.AddListener(() => {
             SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.incorrect, shapeController.currentShape.transform.position);
         });

@@ -33,4 +33,9 @@ public class Counter
         scoreChanged.Invoke(Score);
     }
 
+    public void SetScore(int value)
+    {
+        Score = value < 0 ? 0 : value; 
+    }
+
 }
