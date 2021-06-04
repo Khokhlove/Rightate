@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.D) && isActive) Right();
             if (Input.GetKeyUp(KeyCode.S) && isActive) Down();
     }
+   
     void _Move(Vector3 pos, Vector3 rot)
     {
         isActive = false;
