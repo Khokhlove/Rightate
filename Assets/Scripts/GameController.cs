@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
     public UnityEvent correctSelection = new UnityEvent();
     public UnityEvent incorrectSelection = new UnityEvent();
 
+    public bool gameOver = false;
+
     private AudioController audioController;
 
     private void Start()
@@ -27,14 +29,18 @@ public class GameController : MonoBehaviour
         audioController = AudioController.GetInstance();
         WarmupController warmupController = WarmupController.GetInstance();
 
+        //timer.timeIsUp.AddListener(() => { gameOver = true; });
+
         correctSelection.AddListener(Counter.GetInstance().Add);
-        // correctSelection.AddListener(() => timer.AddTime(1f));
         correctSelection.AddListener(() => {
             SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.correct, shapeController.currentShape.transform.position);
         });
 
         incorrectSelection.AddListener(Counter.GetInstance().Sub);
-        incorrectSelection.AddListener(() => audioController.ShiftTrack());
+        incorrectSelection.AddListener(() => {
+            if (!warmupController.warmup)
+                audioController.ShiftTrack();
+        });
         incorrectSelection.AddListener(() =>
         {
             if (!warmupController.warmup)
@@ -48,6 +54,11 @@ public class GameController : MonoBehaviour
         incorrectSelection.AddListener(() => {
             SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.incorrect, shapeController.currentShape.transform.position);
         });
+    }
+
+    public void SetGameOver(bool value)
+    {
+        gameOver = value;
     }
 
     public void OnAnimetionFinished(PlayerController.Direction dir, Shape currentShape)

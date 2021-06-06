@@ -6,21 +6,25 @@ public class LevelLoader : MonoBehaviour
 {
     public MusicSelector musicSelector;
 
-    void Start()
+    public static void LoadLevel(int levelId)
     {
-
+        SceneManager.LoadScene(levelId, LoadSceneMode.Single);
     }
 
     public void LoadLevel()
     {
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
-        SceneManager.sceneLoaded += (Scene scene, LoadSceneMode loadMode) =>
-        {
-            SceneManager.SetActiveScene(scene);
-            AudioController.GetInstance().SetMusic(musicSelector.selected);
+        SceneManager.sceneLoaded += LoadGameLevel;
+    }
 
-            Scene mainMenu = SceneManager.GetSceneByName("Menu");
-            SceneManager.UnloadScene(mainMenu);
-        };
+    void LoadGameLevel(Scene scene, LoadSceneMode loadMode)
+    {
+        SceneManager.SetActiveScene(scene);
+        AudioController.GetInstance().SetMusic(musicSelector.selected);
+
+        Scene mainMenu = SceneManager.GetSceneByName("Menu");
+        SceneManager.UnloadScene(mainMenu);
+
+        SceneManager.sceneLoaded -= LoadGameLevel;
     }
 }

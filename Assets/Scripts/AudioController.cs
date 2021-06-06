@@ -19,7 +19,7 @@ public class AudioController : MonoBehaviour
     void Start()
     {
         #if UNITY_EDITOR
-        SetMusic(backgroundMusic);
+            SetMusic(backgroundMusic);
         #endif
     }
 

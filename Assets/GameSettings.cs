@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
+    static GameSettings instance;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+            
+        }
+
         Application.targetFrameRate = 60;
+    }
+
+    public GameSettings GetInstance()
+    {
+        return instance;
     }
 }

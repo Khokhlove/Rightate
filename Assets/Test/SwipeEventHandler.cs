@@ -9,6 +9,7 @@ public class SwipeEventHandler : MonoBehaviour, IDragHandler, IBeginDragHandler
     public UnityEvent down;
     public UnityEvent left;
     public UnityEvent right;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (Mathf.Abs(eventData.delta.x) > Mathf.Abs(eventData.delta.y))
