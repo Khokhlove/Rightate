@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-            if (Input.GetKeyUp(KeyCode.A) && isActive) Left();
-            if (Input.GetKeyUp(KeyCode.W) && isActive) Up();
-            if (Input.GetKeyUp(KeyCode.D) && isActive) Right();
-            if (Input.GetKeyUp(KeyCode.S) && isActive) Down();
+            if (Input.GetKeyUp(KeyCode.A)) Left();
+            if (Input.GetKeyUp(KeyCode.W)) Up();
+            if (Input.GetKeyUp(KeyCode.D)) Right();
+            if (Input.GetKeyUp(KeyCode.S)) Down();
     }
    
     void _Move(Vector3 pos, Vector3 rot)
@@ -66,31 +66,42 @@ public class PlayerController : MonoBehaviour
     }
     public void Left()
     {
-        direction = Direction.Left;
-        Vector3 dir = gameController.shapesStartPos[(int)Direction.Left];
-        dir.y = 0;
-        _Move(dir, new Vector3(0,0,90));
+        if (isActive)
+        {
+            direction = Direction.Left;
+            Vector3 dir = gameController.shapesStartPos[(int)Direction.Left];
+            dir.y = 0;
+            _Move(dir, new Vector3(0, 0, 90));
+        }
     }
     public void Up()
     {
-        direction = Direction.Up;
-        Vector3 dir = gameController.shapesStartPos[(int)Direction.Up];
-        dir.y = 0f;
-        _Move(dir, new Vector3(90, 0, 0));
+        if (isActive)
+        {
+            direction = Direction.Up;
+            Vector3 dir = gameController.shapesStartPos[(int)Direction.Up];
+            dir.y = 0f;
+            _Move(dir, new Vector3(90, 0, 0));
+        }
     }
     public void Right()
     {
-        direction = Direction.Right;
-        Vector3 dir = gameController.shapesStartPos[(int)Direction.Right];
-        dir.y = 0f;
-        _Move(dir, new Vector3(0, 0, -90));
+        if (isActive)
+        {
+            direction = Direction.Right;
+            Vector3 dir = gameController.shapesStartPos[(int)Direction.Right];
+            dir.y = 0f;
+            _Move(dir, new Vector3(0, 0, -90));
+        }
     }
     public void Down()
     {
-        direction = Direction.Down;
-        Vector3 dir = gameController.shapesStartPos[(int)Direction.Down];
-        dir.y = 0f;
-        _Move(dir, new Vector3(-90, 0, 0));
+        if (isActive)
+        {
+            direction = Direction.Down;
+            Vector3 dir = gameController.shapesStartPos[(int)Direction.Down];
+            dir.y = 0f;
+            _Move(dir, new Vector3(-90, 0, 0));
+        }
     }
-
 }
