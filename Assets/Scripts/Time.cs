@@ -9,7 +9,7 @@ namespace CustomTimer
         public Time(float seconds)
         {
             minutes = Mathf.Floor(seconds / 60);
-            this.seconds = seconds - minutes * 60;
+            this.seconds = Mathf.Floor(seconds % 60);
         }
 
         public override string ToString()

@@ -24,8 +24,11 @@ public class WarmupController : MonoBehaviour
         warmupUI.gameObject.SetActive(false);
         gameUI.gameObject.SetActive(true);
         Counter.GetInstance().SetScore(0);
+        warmup = false;
+    }
+    public void SkipWarmup()
+    {
         AudioController audioController = AudioController.GetInstance();
         audioController.SetTrackPos(audioController.backgroundMusic.warmupTime);
-        warmup = false;
     }
 }
