@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Naruto - Spin and burst
   m_EditorClassIdentifier: 
   track: {fileID: 8300000, guid: 43121fbec773c6447991ccc1c154e70e, type: 3}
-  warmupTime: 20
+  warmupTime: 11
   songName: Spin and burst
   artistName: Naruto
   year: 2018
