@@ -133,11 +133,15 @@ public class GameController : MonoBehaviour
         return directionShapes[dir].Equals(shape);
     }
 
-    void Pause()
+    public void Pause()
     {
+        timer.enabled = false;
+        audioController.enabled = false;
     }
 
-    void Unpause()
+    public void Unpause()
     {
+        timer.enabled = true;
+        audioController.enabled = true;
     }
 }

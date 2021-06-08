@@ -18,9 +18,9 @@ public class AudioController : MonoBehaviour
     }
     void Start()
     {
-        //#if UNITY_EDITOR
-        //    SetMusic(backgroundMusic);
-        //#endif
+        #if UNITY_EDITOR
+            SetMusic(backgroundMusic);
+        #endif
     }
 
     public void SetMusic(AudioTrack track)
