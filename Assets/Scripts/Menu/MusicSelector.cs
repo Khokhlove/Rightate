@@ -6,16 +6,15 @@ using UnityEngine.UI;
 public class MusicSelector : MonoBehaviour
 {
     public GameObject content;
-    public List<AudioTrack> audioTracks;
+    public MusicContainer musicContainer;
     public GameObject trackUI;
     public Color selectionColor;
 
-    public AudioTrack selected;
     private List<AudioTrackUI> trackUIs = new List<AudioTrackUI>();
     void Start()
     {
-        selected = audioTracks[0];
-        SetTracks(audioTracks);
+        musicContainer = MusicContainer.GetInstance();
+        SetTracks(musicContainer.audioTracks);
     }
 
     void SetTracks(List<AudioTrack> audioTracks)
@@ -25,7 +24,7 @@ public class MusicSelector : MonoBehaviour
             GameObject instance = Instantiate(trackUI, content.transform);
             AudioTrackUI trackInstance = instance.GetComponent<AudioTrackUI>();
             trackInstance.SetInfo(e);
-            trackInstance.click.AddListener(SelectTrack);
+            trackInstance.click.AddListener(musicContainer.SelectTrack);
             trackInstance.click.AddListener(at => 
             {
                 SetDefaultBackgrounds();
@@ -34,11 +33,6 @@ public class MusicSelector : MonoBehaviour
 
             trackUIs.Add(trackInstance);
         });
-    }
-
-    void SelectTrack(AudioTrack audioTrack)
-    {
-        selected = audioTrack;
     }
 
     void SetDefaultBackgrounds()

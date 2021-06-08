@@ -1,10 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class LevelLoader : MonoBehaviour
 {
     public MusicSelector musicSelector;
+    static LevelLoader instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+
+    public static LevelLoader GetInstance()
+    {
+        return instance;
+    }
 
     public static void LoadLevel(int levelId)
     {
@@ -14,17 +31,15 @@ public class LevelLoader : MonoBehaviour
     public void LoadLevel()
     {
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
-        SceneManager.sceneLoaded += LoadGameLevel;
+        SceneManager.sceneLoaded += OnGameLevelLoaded;
     }
 
-    void LoadGameLevel(Scene scene, LoadSceneMode loadMode)
+    void OnGameLevelLoaded(Scene scene, LoadSceneMode loadMode)
     {
+        Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.SetActiveScene(scene);
-        AudioController.GetInstance().SetMusic(musicSelector.selected);
-
-        Scene mainMenu = SceneManager.GetSceneByName("Menu");
-        SceneManager.UnloadScene(mainMenu);
-
-        SceneManager.sceneLoaded -= LoadGameLevel;
+        AudioController.GetInstance().SetMusic(MusicContainer.GetInstance().selected);
+        SceneManager.UnloadScene(currentScene);
+        SceneManager.sceneLoaded -= OnGameLevelLoaded;
     }
 }
