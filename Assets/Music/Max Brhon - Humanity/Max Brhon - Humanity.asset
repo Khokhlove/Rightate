@@ -17,4 +17,4 @@ MonoBehaviour:
   songName: Humanity
   artistName: Max Brhon
   year: 2021
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 473e75b9b3222194090bb3681309d627, type: 3}

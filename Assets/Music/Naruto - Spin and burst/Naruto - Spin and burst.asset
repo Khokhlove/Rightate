@@ -17,4 +17,4 @@ MonoBehaviour:
   songName: Spin and burst
   artistName: Naruto
   year: 2018
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: d56ea1b21d25ef94aa69729786db8df8, type: 3}
