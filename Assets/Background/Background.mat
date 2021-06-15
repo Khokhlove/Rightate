@@ -21,9 +21,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Background
-  m_Shader: {fileID: -6465566751694194690, guid: 78ed431da9c7cd14b9c35f2f2e308309, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 59ec57271ab50784b8dcafa30c59330f, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
-  m_LightmapFlags: 6
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -89,7 +89,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_6e793f50fef94ad6ac6a35632a79fc8b_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 4437aafe3473570479429cade0a3682e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6be5ea53372d2a74d9b7edeedfa58252, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_85352664e7874711b61fa86145f5cbd2_Texture_1:
@@ -192,7 +192,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
+    - Color_619495cc93744e7185e6ffb8e90a8ea0: {r: 0.32987696, g: 0.32987696, b: 0.32987696, a: 0}
     - Color_c0bbd533883d46729e000130696089fb: {r: 0.9622642, g: 0, b: 0, a: 0}
+    - Color_dd9bdfde764c4c88a5915f2b448e4d5e: {r: 11.984314, g: 11.984314, b: 11.984314, a: 0}
     - Vector2_0435b20932104a17ada3e71dae615c98: {r: 0.5, g: 0.54, b: 0, a: 0}
     - Vector2_1a040468431b4cca83fe343ac20467f8: {r: 100, g: 100, b: 0, a: 0}
     - Vector2_bb65b78615a14f8da8b683c1e04228fe: {r: 100, g: 100, b: 0, a: 0}

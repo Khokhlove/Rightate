@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public UnityEvent<Direction, Shape> directionChanged;
     public UnityEvent<Direction, Shape> animationFinished;
     public AnimationCurve moveCurve;
-    [Range(0.1f ,3)]
+    [Range(0.1f ,100)]
     public float speed;
 
     Direction direction;

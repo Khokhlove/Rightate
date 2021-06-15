@@ -3263,7 +3263,7 @@
         "b": 1.0,
         "a": 0.0
     },
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {
@@ -3271,7 +3271,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "d4d178ba33144111a3148e35718ce120",
     "m_Id": 0,
-    "m_DisplayName": "Background texture",
+    "m_DisplayName": "Background Texture",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",

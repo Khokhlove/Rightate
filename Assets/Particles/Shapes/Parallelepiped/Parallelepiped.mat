@@ -10,7 +10,7 @@ Material:
   m_Name: Parallelepiped
   m_Shader: {fileID: -6465566751694194690, guid: d891b1f343dff00419a40b0d38deebd3, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -118,6 +118,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
+    - Color_850b011499514765afccb7299e252c01: {r: 576.5881, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

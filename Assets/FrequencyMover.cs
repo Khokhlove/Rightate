@@ -9,8 +9,9 @@ public class FrequencyMover : MonoBehaviour
 {
     
     public int offset = 90;
-    [Range(1, 10)]
+    [Range(1, 100)]
     public float aplifier = 10f;
+    public float lerp;
 
     AudioSource audio;
     CubesBackground cb;
@@ -37,7 +38,8 @@ public class FrequencyMover : MonoBehaviour
             Transform t = cb.cubes[i].transform;
             Vector3 oldPos = t.localPosition;
             Vector3 newPos = new Vector3(oldPos.x, spectrum[i] * aplifier, oldPos.z);
-            t.localPosition = newPos;
+            Vector3 targetPos = Vector3.Lerp(oldPos, newPos, lerp);
+            t.localPosition = targetPos;
         }
     }
 }
