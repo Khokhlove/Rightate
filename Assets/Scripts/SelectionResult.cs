@@ -19,7 +19,7 @@ public class SelectionResult : MonoBehaviour
     {
         ParticleSystem particle = particles[(int)result];
         GameObject par = Instantiate(particle.gameObject, pos, Quaternion.identity);
-        float totalDuration = particle.main.duration + particle.main.startLifetimeMultiplier;
+        float totalDuration = particle.main.duration;
         Destroy(par, totalDuration);
     }
 

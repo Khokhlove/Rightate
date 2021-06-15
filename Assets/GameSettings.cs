@@ -15,7 +15,7 @@ public class GameSettings : MonoBehaviour
             
         }
 
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120;
     }
 
     public GameSettings GetInstance()
