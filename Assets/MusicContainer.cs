@@ -18,11 +18,6 @@ public class MusicContainer : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        selected = audioTracks[0];
-    }
-
     public static MusicContainer GetInstance()
     {
         return instance;

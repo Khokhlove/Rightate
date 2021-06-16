@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MusicSelector : MonoBehaviour
 {
+    public AudioSource backgroundMusic;
     public GameObject content;
     public MusicContainer musicContainer;
     public GameObject trackUI;
@@ -29,6 +30,9 @@ public class MusicSelector : MonoBehaviour
             {
                 SetDefaultBackgrounds();
                 trackInstance.SetBackgroundColor(selectionColor);
+                backgroundMusic.clip = at.track;
+                backgroundMusic.time = at.warmupTime;
+                backgroundMusic.Play();
             });
 
             trackUIs.Add(trackInstance);

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Max Brhon - Humanity
   m_EditorClassIdentifier: 
   track: {fileID: 8300000, guid: c549a87fb438e1a4f8103f8b040a3d93, type: 3}
-  warmupTime: 10
+  warmupTime: 50.5
   songName: Humanity
   artistName: Max Brhon
   year: 2021
