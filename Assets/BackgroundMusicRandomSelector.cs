@@ -5,7 +5,6 @@ using UnityEngine;
 public class BackgroundMusicRandomSelector : MonoBehaviour
 {
     public AudioSource backgroundMusic;
-    public MusicContainer container;
 
     void Start()
     {
@@ -14,6 +13,7 @@ public class BackgroundMusicRandomSelector : MonoBehaviour
 
     void SetRandomTrack()
     {
+        MusicContainer container = MusicContainer.GetInstance();
         int trackId = Random.Range(0, container.audioTracks.Count);
         AudioTrack track = container.audioTracks[trackId];
         container.SelectTrack(track);
