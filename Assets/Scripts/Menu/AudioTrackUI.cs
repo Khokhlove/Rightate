@@ -35,6 +35,10 @@ public class AudioTrackUI : MonoBehaviour
     {
         background.color = color;
     }
+    public void SetSprite(Sprite sprite)
+    {
+        background.sprite = sprite;
+    }
 
     public void SetDefaultBackgroundColor()
     {

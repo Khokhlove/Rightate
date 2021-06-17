@@ -10,6 +10,7 @@ public class MusicSelector : MonoBehaviour
     public MusicContainer musicContainer;
     public GameObject trackUI;
     public Color selectionColor;
+    public Sprite selectionSprite;
 
     private List<AudioTrackUI> trackUIs = new List<AudioTrackUI>();
     void Start()
@@ -30,6 +31,7 @@ public class MusicSelector : MonoBehaviour
             {
                 SetDefaultBackgrounds();
                 trackInstance.SetBackgroundColor(selectionColor);
+                trackInstance.SetSprite(selectionSprite);
                 backgroundMusic.clip = at.track;
                 backgroundMusic.time = at.warmupTime;
                 backgroundMusic.Play();
