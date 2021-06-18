@@ -980,6 +980,7 @@ MonoBehaviour:
   resumeButton: {fileID: 1190564941}
   exitButton: {fileID: 633158397}
   gameController: {fileID: 912977210}
+  panel: {fileID: 1694900120}
 --- !u!1 &536306509
 GameObject:
   m_ObjectHideFlags: 0

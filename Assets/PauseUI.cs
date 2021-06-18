@@ -12,11 +12,13 @@ public class PauseUI : MonoBehaviour
     public GameObject resumeButton;
     public Button exitButton;
     public GameController gameController;
+    public GameObject panel;
 
     // Start is called before the first frame update
     void Start()
     {
         exitButton.onClick.AddListener(() => {
+            panel.SetActive(false);
             if (gameController.gameOver)
             {
                 LevelLoader.LoadLevel(0);
@@ -26,7 +28,10 @@ public class PauseUI : MonoBehaviour
                 YesNoWindowUI yesNoWindow = wc.CreateYesNoWindow("Do you realy want to exit?");
 
                 yesNoWindow.yes.onClick.AddListener(() => LevelLoader.LoadLevel(0));
-                yesNoWindow.no.onClick.AddListener(() => Destroy(yesNoWindow.gameObject));
+                yesNoWindow.no.onClick.AddListener(() => {
+                    Destroy(yesNoWindow.gameObject);
+                    panel.SetActive(true);
+                    });
             }
         });
     }

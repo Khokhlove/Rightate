@@ -19,6 +19,8 @@ public class CanvasController : MonoBehaviour
     };
     private Canvas current;
     private Canvas previous;
+    private Coroutine move;
+
     void Start()
     {
         for (int i = 0; i < canvases.Count; i++)
@@ -36,10 +38,17 @@ public class CanvasController : MonoBehaviour
     }
     public void SelectCanvas(int id)
     {
-        previous = current;
-        current = canvases[id]; 
-        current.gameObject.SetActive(true);
-        StartCoroutine(Move(() => { previous.gameObject.SetActive(false); }));   
+        if (move == null)
+        {
+            previous = current;
+            current = canvases[id];
+            current.gameObject.SetActive(true);
+            move = StartCoroutine(Move(() => 
+            { 
+                previous.gameObject.SetActive(false);
+                move = null;
+            }));
+        }
     }
 
     public IEnumerator Move(UnityAction callback)

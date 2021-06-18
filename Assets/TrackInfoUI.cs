@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class TrackInfoUI : MonoBehaviour
 {
     public Text text;
-    // Start is called before the first frame update
+
     void Start()
     {
-        AudioTrack track = MusicContainer.GetInstance().selected;
-        SetInfo(track);
+        MusicContainer.GetInstance().trackChanged.AddListener(SetInfo);
+    }
+
+    void OnDestroy()
+    {
+        MusicContainer.GetInstance().trackChanged.RemoveListener(SetInfo);
     }
 
     public void SetInfo(AudioTrack track)

@@ -26,10 +26,6 @@ public class GameController : MonoBehaviour
         playerController.animationFinished.AddListener(OnAnimetionFinished);
         shapeController.Create();
         CreateDirectionShapes();
-        audioController = AudioController.GetInstance();
-        WarmupController warmupController = WarmupController.GetInstance();
-
-        //timer.timeIsUp.AddListener(() => { gameOver = true; });
 
         correctSelection.AddListener(Counter.GetInstance().Add);
         correctSelection.AddListener(() => {
@@ -37,23 +33,8 @@ public class GameController : MonoBehaviour
         });
 
         incorrectSelection.AddListener(Counter.GetInstance().Sub);
-        incorrectSelection.AddListener(() => {
-            if (!warmupController.warmup)
-                audioController.ShiftTrack();
-        });
-        incorrectSelection.AddListener(() =>
-        {
-            if (!warmupController.warmup)
-                audioController.PlayMissClick();
-        });
-        incorrectSelection.AddListener(() =>
-        {
-            if (!warmupController.warmup)
-                timer.SubTime(2);
-        });
-        incorrectSelection.AddListener(() => {
-            SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.incorrect, shapeController.currentShape.transform.position);
-        });
+        incorrectSelection.AddListener(OnIncorrectSelection);
+       
     }
 
     public void SetGameOver(bool value)
@@ -83,23 +64,27 @@ public class GameController : MonoBehaviour
 
         PlayerController.Direction correctDirection;
         correctDirection = (PlayerController.Direction)UnityEngine.Random.Range(0, directions.Length);
+        List<Shape> uniqueShapes = new List<Shape>(shapeController.shapes);
+
+        Shape correctShape = shapeController.currentShape;
+        uniqueShapes.Remove(correctShape);
+        GameObject correctShapeParticle = Instantiate(correctShape.particle.gameObject, shapesStartPos[(int)correctDirection], GetRotationFromDirection(correctDirection), particleWrapper.transform);
+        correctShapeParticle.GetComponent<ParticleSystemRenderer>().material.SetInt("_IsCorrect", 1);
+        directionShapes[correctDirection] = correctShape;
 
         foreach (PlayerController.Direction e in directions)
         {
             if (!e.Equals(correctDirection))
             {
-                int id = UnityEngine.Random.Range(0, shapeController.shapes.Count);
-                Shape tempShape = shapeController.shapes[id];
+                int id = UnityEngine.Random.Range(0, uniqueShapes.Count);     
+                Shape tempShape = uniqueShapes[id];
+                uniqueShapes.Remove(tempShape);
                 GameObject inst = Instantiate(tempShape.particle.gameObject, shapesStartPos[(int)e], GetRotationFromDirection(e), particleWrapper.transform);
+                inst.GetComponent<ParticleSystemRenderer>().material.SetInt("_IsCorrect", 0);
                 tempShape.particleInstance = inst;
                 directionShapes.Add(e, tempShape);
             }
         }
-
-        Shape correctShape = shapeController.currentShape;
-        GameObject correctShapeParticle = Instantiate(correctShape.particle.gameObject, shapesStartPos[(int)correctDirection], GetRotationFromDirection(correctDirection), particleWrapper.transform);
-
-        directionShapes[correctDirection] = correctShape;
     }
 
     Quaternion GetRotationFromDirection(PlayerController.Direction direction)
@@ -143,5 +128,18 @@ public class GameController : MonoBehaviour
     {
         timer.enabled = true;
         audioController.enabled = true;
+    }
+    void OnIncorrectSelection()
+    {
+        audioController = AudioController.GetInstance();
+        WarmupController warmupController = WarmupController.GetInstance();
+        if (!warmupController.warmup)
+        {
+            audioController.ShiftTrack();
+            audioController.PlayMissClick();
+            timer.SubTime(2);
+            Handheld.Vibrate();
+        }
+        SelectionResult.GetInstance().CreateParticle(SelectionResult.ResultType.incorrect, shapeController.currentShape.transform.position);
     }
 }
