@@ -211,7 +211,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "RedGreenShader",
+    "m_Name": "SelectionShader",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {

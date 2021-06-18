@@ -9,6 +9,7 @@ public class Shape: MonoBehaviour
     public ParticleSystem particle;
     public GameObject particleInstance;
     public Material correctMaterial;
+    public Vector3 startPosition;
 
     public override bool Equals(object shape)
     {

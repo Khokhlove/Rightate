@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             float value = moveCurve.Evaluate(time * speed);
 
-            shapeObject.transform.position = pos * value;
+            shapeObject.transform.position = new Vector3(pos.x * value, pos.y, pos.z * value);
             time += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             direction = Direction.Left;
             Vector3 dir = gameController.shapesStartPos[(int)Direction.Left];
-            dir.y = 0;
+            dir.y = shapeController.currentShape.transform.position.y;
             _Move(dir, new Vector3(0, 0, 90));
         }
     }
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         {
             direction = Direction.Up;
             Vector3 dir = gameController.shapesStartPos[(int)Direction.Up];
-            dir.y = 0f;
+            dir.y = shapeController.currentShape.transform.position.y;
             _Move(dir, new Vector3(90, 0, 0));
         }
     }
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             direction = Direction.Right;
             Vector3 dir = gameController.shapesStartPos[(int)Direction.Right];
-            dir.y = 0f;
+            dir.y = shapeController.currentShape.transform.position.y;
             _Move(dir, new Vector3(0, 0, -90));
         }
     }
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         {
             direction = Direction.Down;
             Vector3 dir = gameController.shapesStartPos[(int)Direction.Down];
-            dir.y = 0f;
+            dir.y = shapeController.currentShape.transform.position.y;
             _Move(dir, new Vector3(-90, 0, 0));
         }
     }
