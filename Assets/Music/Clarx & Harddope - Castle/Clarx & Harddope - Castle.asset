@@ -18,3 +18,4 @@ MonoBehaviour:
   artistName: Clarx & Harddope
   year: 2020
   image: {fileID: 21300000, guid: b5c3b88326b84714dae0943b87708ea0, type: 3}
+  highScore: 0

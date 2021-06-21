@@ -11,4 +11,10 @@ public class AudioTrack : ScriptableObject
     public string artistName;
     public int year;
     public Sprite image;
+
+    [SerializeField] private int highScore;
+    public int HighScore {
+        get { return highScore; }
+        set { highScore = value < 0 ? 0 : value; }
+    }
 }

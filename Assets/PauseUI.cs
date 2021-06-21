@@ -13,6 +13,7 @@ public class PauseUI : MonoBehaviour
     public Button exitButton;
     public GameController gameController;
     public GameObject panel;
+    public GameObject highScore;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,8 @@ public class PauseUI : MonoBehaviour
             score.text = Counter.GetInstance().Score.ToString();
             resumeButton.SetActive(false);
             header.text = "Game Over";
+            bool newHighScore = Counter.GetInstance().Score > MusicContainer.GetInstance().selected.HighScore ? true : false;
+            highScore.SetActive(newHighScore);
         } else
         {
             infoBlock.SetActive(false);
