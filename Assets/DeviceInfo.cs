@@ -9,6 +9,9 @@ using Newtonsoft.Json;
 
 public class DeviceInfo : MonoBehaviour
 {
+    public string hostName = "192.168.0.99";
+    public int port = 80;
+
     void Start()
     {
         Dictionary<string, string> dictFields = new Dictionary<string, string>();
@@ -38,7 +41,7 @@ public class DeviceInfo : MonoBehaviour
 
     IEnumerator SendDeviceInfo(string json)
     {
-        UnityWebRequest www = UnityWebRequest.Put("http://localhost:80/api/deviceInfo", json);
+        UnityWebRequest www = UnityWebRequest.Put($"http://{hostName}:{port}/api/deviceInfo", json);
         www.SetRequestHeader("Content-Type", "application/json");
 
         yield return www.SendWebRequest();
