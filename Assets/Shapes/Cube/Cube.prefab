@@ -111,5 +111,3 @@ MonoBehaviour:
   type: 0
   particle: {fileID: 2806025407077511718, guid: 8cdf69e320ef1914397471c4dfec5a94, type: 3}
   particleInstance: {fileID: 0}
-  correctMaterial: {fileID: 0}
-  startPosition: {x: 0, y: 0, z: 0}

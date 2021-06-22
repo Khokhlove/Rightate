@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3616193918725548653
+--- !u!1 &1717787223761247217
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7042951441761716663}
-  - component: {fileID: 2343815150343692809}
-  - component: {fileID: 171868365479849300}
-  - component: {fileID: 4550678947372946915}
-  - component: {fileID: -2668565104423335964}
+  - component: {fileID: 2061838067761545547}
+  - component: {fileID: 3112767279234879214}
+  - component: {fileID: 924981821015456292}
+  - component: {fileID: 3841881741687946834}
+  - component: {fileID: -7385366657046469027}
   m_Layer: 0
-  m_Name: Parallelepiped
+  m_Name: Pyramid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7042951441761716663
+--- !u!4 &2061838067761545547
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616193918725548653}
+  m_GameObject: {fileID: 1717787223761247217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2343815150343692809
+--- !u!33 &3112767279234879214
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616193918725548653}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &171868365479849300
+  m_GameObject: {fileID: 1717787223761247217}
+  m_Mesh: {fileID: 3613567641014311022, guid: a4523fe11008b7b4998638899ec38b28, type: 3}
+--- !u!23 &924981821015456292
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616193918725548653}
+  m_GameObject: {fileID: 1717787223761247217}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8062137da2a5ec042a717ea28203f093, type: 2}
+  - {fileID: 2100000, guid: 7783cdf43723c91428a6cad6acccd8bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,31 +83,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4550678947372946915
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616193918725548653}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-2668565104423335964
+--- !u!114 &3841881741687946834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616193918725548653}
+  m_GameObject: {fileID: 1717787223761247217}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 877050e8cacb481489aa61e4fcec8f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
-  particle: {fileID: 2806025407077511718, guid: 9a75242cc3cea784c96b69d53104dc6e, type: 3}
+  type: 4
+  particle: {fileID: 2806025407077511718, guid: 7f9879bed70bf864ba00254e0cd5014f, type: 3}
   particleInstance: {fileID: 0}
+--- !u!65 &-7385366657046469027
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717787223761247217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4142135, y: 1.4142138, z: 2.0000002}
+  m_Center: {x: -0.00000002980232, y: -0.000000029802326, z: 0}
