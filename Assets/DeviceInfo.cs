@@ -46,14 +46,20 @@ public class DeviceInfo : MonoBehaviour
 
         StartCoroutine(SendDeviceInfo(json));
         SceneManager.sceneUnloaded += OnSceneUnloaded;
-        Application.quitting += () =>
+        Application.wantsToQuit += () =>
         {
             Scene activeScene = SceneManager.GetActiveScene();
-            OnSceneUnloaded(activeScene);
+            SendPrefomanceInfo(activeScene, Application.Quit);
+            return false;
         };
     }
 
     private void OnSceneUnloaded(Scene scene)
+    {
+        SendPrefomanceInfo(scene, () => { });
+    }
+
+    void SendPrefomanceInfo(Scene scene, Action callback)
     {
         FPSCounter fpsCounter = FPSCounter.GetInstance();
         Dictionary<string, string> temp = new Dictionary<string, string>()
@@ -65,7 +71,7 @@ public class DeviceInfo : MonoBehaviour
             { "meanFps", fpsCounter.meanFps.ToString() }
         };
 
-        StartCoroutine(SendPerfomanceInfo(JsonConvert.SerializeObject(temp)));
+        StartCoroutine(_SendPerfomanceInfo(JsonConvert.SerializeObject(temp), callback));
     }
 
     IEnumerator SendDeviceInfo(string json)
@@ -85,7 +91,7 @@ public class DeviceInfo : MonoBehaviour
         }
     }
 
-    IEnumerator SendPerfomanceInfo(string json)
+    IEnumerator _SendPerfomanceInfo(string json, Action callback)
     {
         UnityWebRequest www = UnityWebRequest.Put($"http://{hostName}:{port}/api/perfomance", json);
         www.SetRequestHeader("Content-Type", "application/json");
@@ -100,6 +106,8 @@ public class DeviceInfo : MonoBehaviour
         {
             Debug.Log("Form upload complete!");
         }
+
+        callback();
     }
 
     string GetDeviceId()
