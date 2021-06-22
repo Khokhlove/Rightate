@@ -7,21 +7,19 @@ using UnityEngine.Rendering;
 public class GameDebug : MonoBehaviour
 {
     public bool enableOnStart = false;
+    public int counter = 0;
+    public int debugerOpenThreshold = 10;
+
     public GameObject background;
 
     public Button backgroundButton;
-    public Button backgroundMaterialButton;
-    public Button backgroundLightProbeButton;
     public Button postProcessing;
+    public Button fpsCounterButton;
 
     public Material startBackground;
     public Material targetBackground;
 
-    MeshRenderer backgroundMeshRenderer;
-    GameObject lightProbe;
-
     Text backText;
-    Text backMatText;
     Text postProcessingText;
     Volume volume;
 
@@ -38,44 +36,33 @@ public class GameDebug : MonoBehaviour
             backText.text = $"Background: {background.activeSelf}";
         });
 
-        //Background material
-        backgroundMeshRenderer = background.GetComponent<MeshRenderer>();
-        backMatText = backgroundMaterialButton.GetComponentInChildren<Text>();
-        bool name = backgroundMeshRenderer.material.name == "Default-Diffuse (Instance)" ? true : false;
-        backMatText.text = $"Back. mat.: {name}";
-
-        backgroundMaterialButton.onClick.AddListener(() =>
-        {
-            name = backgroundMeshRenderer.material.name == "Default-Diffuse (Instance)" ? true : false;
-            backgroundMeshRenderer.material = name ? startBackground : targetBackground;
-            backgroundMaterialButton.GetComponentInChildren<Text>().text = $"Back. mat.: {name}";
-        });
-
-        //LightProbe
-        lightProbe = background.transform.Find("Light Probe Group").gameObject;
-
-        backgroundLightProbeButton.onClick.AddListener(() =>
-        {
-            lightProbe.SetActive(lightProbe.activeSelf ? false : true);
-            backgroundLightProbeButton.GetComponentInChildren<Text>().text = $"Light probe: {lightProbe.activeSelf}";
-        });
-
         //PostProcessing
         volume = Camera.main.GetComponent<Volume>();
-        postProcessingText = backgroundLightProbeButton.GetComponentInChildren<Text>();
+        postProcessingText = postProcessing.GetComponentInChildren<Text>();
         postProcessingText.text = $"PP: {volume.enabled}";
 
         postProcessing.onClick.AddListener(() =>
         {
             volume.enabled = volume.enabled ? false : true;
-            backgroundLightProbeButton.GetComponentInChildren<Text>().text = $"PP: {volume.enabled}";
+            postProcessing.GetComponentInChildren<Text>().text = $"PP: {volume.enabled}";
+        });
+
+        //FPSCounter
+        fpsCounterButton.onClick.AddListener(() =>
+        {
+            FPSCounterUI fpsCounterUI = FPSCounter.GetInstance().gameObject.GetComponent<FPSCounterUI>();
+            fpsCounterUI.enabled = fpsCounterUI.enabled ? false : true;
         });
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InrCounter()
     {
-        
+        counter += 1;
+        if (counter == debugerOpenThreshold)
+        {
+            ChangeActive();
+            counter = 0;
+        }
     }
 
     public void ChangeActive()
