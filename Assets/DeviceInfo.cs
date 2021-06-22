@@ -12,16 +12,7 @@ public class DeviceInfo : MonoBehaviour
 {
     public string hostName = "192.168.0.99";
     public int port = 80;
-    public UserData userData;
-
-    const string MENU = "Menu";
-    const string GAME = "Game";
-
-    Dictionary<string, int> fpsData = new Dictionary<string, int>()
-    {
-        { MENU, 0 },
-        { GAME, 0}
-    };
+    public string deviceId = "";
 
     static DeviceInfo instance;
 
@@ -36,6 +27,7 @@ public class DeviceInfo : MonoBehaviour
 
     void Start()
     {
+        deviceId = GetDeviceId();
         Dictionary<string, string> dictFields = new Dictionary<string, string>();
         Type sysInfo = typeof(SystemInfo);
         PropertyInfo[] fields = sysInfo.GetProperties();
@@ -45,7 +37,7 @@ public class DeviceInfo : MonoBehaviour
         }
 
         Dictionary<string, string> dict = new Dictionary<string, string>();
-        dict.Add("userId", userData.userId.ToString());
+        dict.Add("deviceId", deviceId);
 
         string deviceInfo = JsonConvert.SerializeObject(dictFields);
         dict.Add("deviceInfo", deviceInfo);
@@ -53,35 +45,22 @@ public class DeviceInfo : MonoBehaviour
         string json = JsonConvert.SerializeObject(dict);
 
         StartCoroutine(SendDeviceInfo(json));
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnSceneUnloaded(Scene scene)
     {
-        if (fpsData[MENU] == 0 || fpsData[GAME] == 0)
+        FPSCounter fpsCounter = FPSCounter.GetInstance();
+        Dictionary<string, string> temp = new Dictionary<string, string>()
         {
-            string sceneName = SceneManager.GetActiveScene().name;
-            fpsData[sceneName] = Convert.ToInt32(FPSCounter.GetInstance().fps);
+            { "deviceId", deviceId},
+            { "version", Application.version},
+            { "levelName", scene.name },
+            { "fps",  fpsCounter.fps.ToString()},
+            { "meanFps", fpsCounter.meanFps.ToString() }
+        };
 
-        } else
-        {
-            StartCoroutine(Delay(10f, () =>
-            {
-                Dictionary<string, string> temp = new Dictionary<string, string>()
-                {
-                    { "deviceId", userData.userId.ToString()},
-                    { "menuFPS", fpsData[MENU].ToString() },
-                    { "ingameFPS", fpsData[GAME].ToString() }
-                };
-
-                StartCoroutine(SendFPS(JsonConvert.SerializeObject(temp)));
-                fpsData = new Dictionary<string, int>()
-                {
-                    { MENU, 0 },
-                    { GAME, 0}
-                };
-            }));
-        }
+        StartCoroutine(SendPerfomanceInfo(JsonConvert.SerializeObject(temp)));
     }
 
     IEnumerator SendDeviceInfo(string json)
@@ -101,13 +80,7 @@ public class DeviceInfo : MonoBehaviour
         }
     }
 
-    IEnumerator Delay(float duration, Action callback)
-    {
-        yield return new WaitForSeconds(duration);
-        callback();
-    }
-
-    IEnumerator SendFPS(string json)
+    IEnumerator SendPerfomanceInfo(string json)
     {
         UnityWebRequest www = UnityWebRequest.Put($"http://{hostName}:{port}/api/perfomance", json);
         www.SetRequestHeader("Content-Type", "application/json");
@@ -122,5 +95,18 @@ public class DeviceInfo : MonoBehaviour
         {
             Debug.Log("Form upload complete!");
         }
+    }
+
+    string GetDeviceId()
+    {
+        List<byte> bytes = new List<byte>();
+        string info = $"{SystemInfo.deviceName}_{SystemInfo.deviceType}_{SystemInfo.deviceModel}_{SystemInfo.processorType}";
+
+        foreach (char c in info)
+        {
+            bytes.Add((byte)c);
+        }
+
+        return CRC32.GetCRC32(bytes.ToArray()).ToString("X2");
     }
 }
