@@ -46,6 +46,11 @@ public class DeviceInfo : MonoBehaviour
 
         StartCoroutine(SendDeviceInfo(json));
         SceneManager.sceneUnloaded += OnSceneUnloaded;
+        Application.quitting += () =>
+        {
+            Scene activeScene = SceneManager.GetActiveScene();
+            OnSceneUnloaded(activeScene);
+        };
     }
 
     private void OnSceneUnloaded(Scene scene)
