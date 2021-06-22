@@ -2,30 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "UserData", menuName = "UserData")]
 public class UserData : ScriptableObject
 {
     public int userId = 0;
 
-    static UserData instance;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }    
-    }
-
-    public static UserData GetInstance()
-    {
-        return instance;
-    }
-
-    void Start()
+    void Awake()
     {
         if (userId == 0)
         {
-            userId = Random.RandomRange(0, 999999999);
+            userId = Random.Range(0, 999999999);
         }
     }
 }
