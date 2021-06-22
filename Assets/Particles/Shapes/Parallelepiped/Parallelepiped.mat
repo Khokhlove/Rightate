@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_9337ce1575b049878200bd1358bd8225:
+        m_Texture: {fileID: 2800000, guid: ed9cbbfb49980db4fa35b11acc62d36e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AlphaTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -72,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SelectionShader_0ee2da0b10344f3c8c7b17fc5f78492f_Texture2Dee376d708975432886881d4c02fd5f05_60334667:
-        m_Texture: {fileID: 2800000, guid: e481c7b739971214fa013b0e5510f9d0, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:

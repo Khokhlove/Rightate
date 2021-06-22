@@ -562,30 +562,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 359947099}
-  - component: {fileID: 359947098}
   - component: {fileID: 359947100}
+  - component: {fileID: 359947101}
   m_Layer: 0
-  m_Name: FPSCounter
+  m_Name: '[FPSCounter]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &359947098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359947097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cda403d4692c2749928d6597b89617f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fps: 0
-  meanFps: 0
-  msec: 0
 --- !u!4 &359947099
 Transform:
   m_ObjectHideFlags: 0
@@ -612,11 +597,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775fbd3ad0f4a024fabb711439764b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &359947101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359947097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af557faa15fb7d40bfd9a83ffc01255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fps: 0
+  meanFps: 0
+  msec: 0
 --- !u!1 &430326877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4567562711280900474, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
   m_PrefabInstance: {fileID: 951028999}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &430326878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4567562711280900471, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+  m_PrefabInstance: {fileID: 951028999}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430326877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c4cda5de988a94299693717d48313d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &430326879 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4567562711280900475, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
@@ -1355,7 +1366,6 @@ GameObject:
   - component: {fileID: 911543037}
   - component: {fileID: 911543040}
   - component: {fileID: 911543038}
-  - component: {fileID: 911543041}
   - component: {fileID: 911543042}
   m_Layer: 0
   m_Name: '[CubesBackground]'
@@ -1505,25 +1515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template: {fileID: 2145933589343193132, guid: 3cca634ee497e0a42a69db584f912b8d, type: 3}
   cubes: []
---- !u!114 &911543041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911543036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1612ea222067ba94e936467cbe0cd27d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: fac02b5a66003d34bb02f90ae84e8886, type: 2}
-  colors:
-  - {r: 0.21813813, g: 0.8113208, b: 0.7495674, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.12629843, g: 1, b: 0, a: 1}
-  - {r: 0.06587076, g: 0, b: 1, a: 1}
-  amplifier: 0.6
 --- !u!114 &911543042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2558,7 +2549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostName: 192.168.0.99
   port: 80
-  userData: {fileID: 11400000, guid: 9fcc736caa7fa8a488f45c41fed15f74, type: 2}
+  deviceId: 
 --- !u!4 &1683858120
 Transform:
   m_ObjectHideFlags: 0
@@ -3341,13 +3332,24 @@ MonoBehaviour:
   selected: {fileID: 0}
   audioTracks:
   - {fileID: 11400000, guid: abd37ea85ba7a6149a523759aa08bbb6, type: 2}
-  - {fileID: 11400000, guid: a35f92941565cfa438118090006dc88a, type: 2}
   - {fileID: 11400000, guid: 2f9c3f348fe7a0a4a92cfa9e32a7a44b, type: 2}
   - {fileID: 11400000, guid: 9e3569be52f83c949afbf83004a9c20e, type: 2}
   - {fileID: 11400000, guid: 32de36e446aa8cd47b47f57ffcaf4714, type: 2}
   trackChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 430326878}
+        m_TargetAssemblyTypeName: TrackInfoUI, Assembly-CSharp
+        m_MethodName: SetInfo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2045043863
 Transform:
   m_ObjectHideFlags: 0

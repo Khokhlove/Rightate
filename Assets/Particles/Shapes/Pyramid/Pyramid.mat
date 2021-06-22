@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_9337ce1575b049878200bd1358bd8225:
+        m_Texture: {fileID: 2800000, guid: e0c2c4cf08ff1534baecbc5426d645bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AlphaTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -76,7 +80,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SelectionShader_f8a3641630f54fd1992043c9d70b0f04_Texture2Dee376d708975432886881d4c02fd5f05_60334667:
-        m_Texture: {fileID: 2800000, guid: 907b0446fb60b90468110d887088d970, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
