@@ -13,7 +13,7 @@ public class FrequencyMover : MonoBehaviour
     public float aplifier = 10f;
     public float lerp;
     public List<float> spectrum;
-
+    public FFTWindow fFTWindow;
     AudioSource audio;
     CubesBackground cb;
 
@@ -26,7 +26,7 @@ public class FrequencyMover : MonoBehaviour
     void Update()
     {
         float[] tempSpectrum = new float[1024];
-        audio.GetSpectrumData(tempSpectrum, 0, FFTWindow.Rectangular);
+        audio.GetSpectrumData(tempSpectrum, 0, fFTWindow);
 
         spectrum = tempSpectrum.ToList().GetRange(offset, offset + 100);
         Move(spectrum);

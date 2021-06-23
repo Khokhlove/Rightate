@@ -1479,8 +1479,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0
   aplifier: 10
-  lerp: 0.1
+  lerp: 0.05
   spectrum: []
+  fFTWindow: 0
 --- !u!4 &911543039
 Transform:
   m_ObjectHideFlags: 0
@@ -2493,6 +2494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonBoarding
       objectReference: {fileID: 0}
+    - target: {fileID: 6233603372235615652, guid: 8f6fbd9b20c7c0148b2778dfc4197363, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6233603372235615653, guid: 8f6fbd9b20c7c0148b2778dfc4197363, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2987,7 +2992,7 @@ MonoBehaviour:
   content: {fileID: 867587881}
   musicContainer: {fileID: 2045043862}
   trackUI: {fileID: 4402172309593880620, guid: 9f1d4c7bbb65e57419a4cb4d56edae0e, type: 3}
-  selectionColor: {r: 0, g: 1, b: 0.56810045, a: 1}
+  selectionColor: {r: 0.09411766, g: 0.9921569, b: 0.9843138, a: 1}
   selectionSprite: {fileID: 21300000, guid: 73e5a42601293d2479f247c5f2bd0328, type: 3}
 --- !u!114 &2036997507
 MonoBehaviour:
