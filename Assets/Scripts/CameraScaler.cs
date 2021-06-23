@@ -28,7 +28,7 @@ public class CameraScaler : MonoBehaviour
         lerp = 0;
         while (lerp < 1)
         {
-            camera.orthographicSize = Mathf.Lerp(targetSize, startSize, lerp);
+            camera.orthographicSize = Mathf.Lerp(targetSize, startSize, pattern.Evaluate(lerp));
             lerp += Time.deltaTime * speed;
             yield return new WaitForEndOfFrame();
         }
