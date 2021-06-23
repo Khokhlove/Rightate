@@ -45,4 +45,5 @@ public class MusicSelector : MonoBehaviour
     {
         trackUIs.ForEach(e => e.SetDefaultBackgroundColor());
     }
+
 }
