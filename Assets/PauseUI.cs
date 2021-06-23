@@ -18,17 +18,18 @@ public class PauseUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Vanisher vanihser = Vanisher.GetInstance();
         exitButton.onClick.AddListener(() => {
             panel.SetActive(false);
             if (gameController.gameOver)
             {
-                LevelLoader.LoadLevel(0);
+                vanihser.VanishAndLoadMenu();
             } else
             {
                 WindowController wc = WindowController.GetInstance();
                 YesNoWindowUI yesNoWindow = wc.CreateYesNoWindow("Do you realy want to exit?");
 
-                yesNoWindow.yes.onClick.AddListener(() => LevelLoader.LoadLevel(0));
+                yesNoWindow.yes.onClick.AddListener(vanihser.VanishAndLoadMenu);
                 yesNoWindow.no.onClick.AddListener(() => {
                     Destroy(yesNoWindow.gameObject);
                     panel.SetActive(true);
