@@ -617,17 +617,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4567562711280900474, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
   m_PrefabInstance: {fileID: 951028999}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &430326878 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4567562711280900471, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
-  m_PrefabInstance: {fileID: 951028999}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430326877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c4cda5de988a94299693717d48313d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &430326879 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4567562711280900475, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
@@ -1778,7 +1767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16d00d6c8ba71c498929daae3a8a574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSelector: {fileID: 2036997506}
 --- !u!4 &1027170189
 Transform:
   m_ObjectHideFlags: 0
@@ -3276,19 +3264,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d92ab398530b0cf4dbe9eb3de2364fd8, type: 2}
   trackChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 430326878}
-        m_TargetAssemblyTypeName: TrackInfoUI, Assembly-CSharp
-        m_MethodName: SetInfo
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &2045043863
 Transform:
   m_ObjectHideFlags: 0
