@@ -2,24 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSettings : MonoBehaviour
+public class GameSettings : Singleton<GameSettings>
 {
-    static GameSettings instance;
-
-    private void Awake()
+    public override void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-            
-        }
-
+        base.Awake();
         Application.targetFrameRate = 120;
-    }
-
-    public GameSettings GetInstance()
-    {
-        return instance;
     }
 }
