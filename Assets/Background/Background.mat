@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Background
-  m_Shader: {fileID: -6465566751694194690, guid: 8328cdba98d7bb94493fb7ec1a31ac22, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c8b951bb275d1604ab3bbf0d35ed7bc4, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -198,9 +198,10 @@ Material:
     m_Colors:
     - Color_619495cc93744e7185e6ffb8e90a8ea0: {r: 0.32987696, g: 0.32987696, b: 0.32987696, a: 0}
     - Color_c0bbd533883d46729e000130696089fb: {r: 0.9622642, g: 0, b: 0, a: 0}
-    - Color_dd9bdfde764c4c88a5915f2b448e4d5e: {r: 0.78431374, g: 5.992157, b: 5.9607844, a: 0}
+    - Color_dd9bdfde764c4c88a5915f2b448e4d5e: {r: 0.58232325, g: 0.03882155, b: 1.0592737, a: 0}
     - Vector2_0435b20932104a17ada3e71dae615c98: {r: 0.5, g: 0.54, b: 0, a: 0}
     - Vector2_1a040468431b4cca83fe343ac20467f8: {r: 100, g: 100, b: 0, a: 0}
+    - Vector2_23fda660fde241fa8b79e6a0a2827760: {r: 0.95, g: 0.95, b: 0, a: 0}
     - Vector2_5e9c9222e015429b9f4d3c488f88d208: {r: 1, g: 1, b: 0, a: 0}
     - Vector2_8b6bd6ccf617429eac302749bf0f89d7: {r: 0.5, g: 0.7, b: 0, a: 0}
     - Vector2_bb65b78615a14f8da8b683c1e04228fe: {r: 100, g: 100, b: 0, a: 0}

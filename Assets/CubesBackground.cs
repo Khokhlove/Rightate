@@ -9,7 +9,7 @@ public class CubesBackground: MonoBehaviour
     void Start()
     {
         InitCubes();
-        transform.position = new Vector3(11, 8, 290);
+        transform.position = new Vector3(10.5f, 8.2f, 290);
         transform.rotation = Quaternion.Euler(new Vector3(45, 200, 0));
         transform.localScale = new Vector3(2, 2, 2);
     }
