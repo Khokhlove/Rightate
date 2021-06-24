@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
+  m_Name: NIVIRO - Dancin
+  m_EditorClassIdentifier: 
+  track: {fileID: 8300000, guid: 294f4e395df2f2c4fb1e10a1118870cf, type: 3}
+  warmupTime: 37.9
+  songName: Dancin
+  artistName: NIVIRO
+  year: 2018
+  image: {fileID: 21300000, guid: 4a12addaf5f65594dbaefe6ce07c3e63, type: 3}
+  highScore: 0

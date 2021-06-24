@@ -15,10 +15,22 @@ public class AudioTrackUI : MonoBehaviour
     public UnityEvent<AudioTrack> click;
     private AudioTrack audioTrack;
     private Color startColor;
+    private Button button;
 
     void Start()
     {
         startColor = background.color;
+        button = GetComponent<Button>();
+        button.onClick.AddListener(OnClick);
+    }
+
+    private void OnClick()
+    {
+        click.Invoke(audioTrack);
+    }
+    private void OnDestroy()
+    {
+        button.onClick.RemoveListener(OnClick);
     }
 
     public void SetInfo(AudioTrack audioTrack)
@@ -43,10 +55,5 @@ public class AudioTrackUI : MonoBehaviour
     public void SetDefaultBackgroundColor()
     {
         background.color = startColor;
-    }
-
-    void OnMouseUpAsButton()
-    {
-        click.Invoke(audioTrack);
     }
 }
