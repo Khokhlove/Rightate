@@ -8,22 +8,11 @@ using UnityEngine.Networking;
 using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
 
-public class DeviceInfo : MonoBehaviour
+public class DeviceInfo : Singleton<DeviceInfo>
 {
     public string hostName = "192.168.0.99";
     public int port = 80;
     public string deviceId = "";
-
-    static DeviceInfo instance;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-    }
 
     void Start()
     {

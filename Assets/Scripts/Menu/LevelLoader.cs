@@ -4,25 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
-public class LevelLoader : MonoBehaviour
+public class LevelLoader : Singleton<LevelLoader>
 {
-    public MusicSelector musicSelector;
-    static LevelLoader instance;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-    }
-
-    public static LevelLoader GetInstance()
-    {
-        return instance;
-    }
-
     public static void LoadLevel(int levelId)
     {
         SceneManager.LoadScene(levelId, LoadSceneMode.Single);

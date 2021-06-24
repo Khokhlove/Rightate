@@ -4,50 +4,33 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 
-public class Vanisher : MonoBehaviour
+public class Vanisher : Singleton<Vanisher>
 {
     Material material;
-    static Vanisher instance;
 
     public Color startColor;
     public Color targetColor;
 
-    public static Vanisher GetInstance()
+    public override void Awake()
     {
-        return instance;
-    }
-    void Awake()
-    {
+        base.Awake();
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         material = meshRenderer.material;
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
     }
 
-    void Start()
-    {
-
-    }
     public void Hide(Action callback)
     {
-        //gameObject.SetActive(true);
         StartCoroutine(_Hide(() =>
         {
             callback();
-            //gameObject.SetActive(false);
         }));
     }
 
     public void Show(Action callback)
     {
-        //gameObject.SetActive(true);
         StartCoroutine(_Show(() =>
         {
             callback();
-            //gameObject.SetActive(false);
         }));
     }
 
