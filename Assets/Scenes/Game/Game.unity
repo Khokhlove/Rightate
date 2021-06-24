@@ -1029,7 +1029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eed67f7489f17448a42ee5794a08716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  header: {fileID: 0}
+  header: {fileID: 232687413}
   score: {fileID: 1268044815}
   time: {fileID: 615183379}
   infoBlock: {fileID: 748258742}
@@ -2281,6 +2281,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 2136900418}
+--- !u!1 &1031633340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031633343}
+  - component: {fileID: 1031633342}
+  - component: {fileID: 1031633341}
+  m_Layer: 0
+  m_Name: '[AdsController]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1031633341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031633340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d722d95ad9088248b72cae6d3f4f01d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testMode: 1
+--- !u!114 &1031633342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031633340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be08a5f5d18a09246bfa9bceef7f5891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamesBeforeAd: {fileID: 11400000, guid: 8bb2bdfa7f4a6f840a5ed70241b0a2b6, type: 2}
+  threshold: 2
+--- !u!4 &1031633343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031633340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4003777, y: 1.0581212, z: 90.115524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1057233920
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,7 +4220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818722869270976490, guid: d1c42e814bf15c947a6c0f6a54b68af3, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6818722869270976490, guid: d1c42e814bf15c947a6c0f6a54b68af3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4815,6 +4874,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1031633342}
+        m_TargetAssemblyTypeName: AdsController, Assembly-CSharp
+        m_MethodName: Dcr
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

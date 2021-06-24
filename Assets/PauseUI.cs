@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PauseUI : MonoBehaviour
 {
-    public Text header;
+    public TextMeshProUGUI header;
     public Text score;
     public Text time;
     public GameObject infoBlock;
