@@ -1,34 +1,73 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.Events;
 
 public class RewardedAds : MonoBehaviour, IUnityAdsListener
 {
-#if UNITY_IOS
-    private string gameId = "4184564";
-#elif UNITY_ANDROID
-    private string gameId = "4184565";
-#endif
-    string mySurfacingId = "rewardedVideo";
-
+    public enum SurfacingType { RewardedVideo, InterstitialVideo };
 #if UNITY_EDITOR
     public bool testMode = true;
 #else
     public bool testMode = false;
 #endif
+    [SerializeField]
+    public UnityAdsDidFinish unityAdsDidFinish;
+    public UnityEvent<SurfacingType> unityAdsReady;
+    public UnityEvent<SurfacingType> unityAdsDidStart;
+    public UnityEvent<string> unityAdsDidError;
 
-    // Initialize the Ads listener and service:
+#if UNITY_IOS
+    private string gameId = "4184564";
+#elif UNITY_ANDROID
+    private string gameId = "4184565";
+#endif
+
+    Dictionary<SurfacingType, string> surfacingIds = new Dictionary<SurfacingType, string>()
+    {
+        { SurfacingType.RewardedVideo, "rewardedVideo" },
+        { SurfacingType.InterstitialVideo, "video" }
+    };
+
+    string GetSurfacingId(SurfacingType type)
+    {
+        return surfacingIds[type];
+    }
+    private SurfacingType GetSurfacingType(string surfacingId)
+    {
+        List<string> ids = surfacingIds.Values.ToList();
+        int id = surfacingIds.Values.ToList().FindIndex(s => s == surfacingId);
+        return (SurfacingType)id;
+    }
     void Start()
     {
         Advertisement.AddListener(this);
         Advertisement.Initialize(gameId, testMode);
     }
 
+    public void ShowInterstitialVideo()
+    {
+        string surfacingId = GetSurfacingId(SurfacingType.InterstitialVideo);
+
+        if (Advertisement.IsReady(surfacingId))
+        {
+            Advertisement.Show(surfacingId);
+        }
+        else
+        {
+            Debug.Log("Interstitial video is not ready at the moment! Please try again later!");
+        }
+    }
+
     public void ShowRewardedVideo()
     {
-        // Check if UnityAds ready before calling Show method:
-        if (Advertisement.IsReady(mySurfacingId))
+        string surfacingId = GetSurfacingId(SurfacingType.RewardedVideo);
+
+        if (Advertisement.IsReady(surfacingId))
         {
-            Advertisement.Show(mySurfacingId);
+            Advertisement.Show(surfacingId);
         }
         else
         {
@@ -36,46 +75,33 @@ public class RewardedAds : MonoBehaviour, IUnityAdsListener
         }
     }
 
-    // Implement IUnityAdsListener interface methods:
     public void OnUnityAdsDidFinish(string surfacingId, ShowResult showResult)
     {
-        // Define conditional logic for each ad completion status:
-        if (showResult == ShowResult.Finished)
-        {
-            // Reward the user for watching the ad to completion.
-        }
-        else if (showResult == ShowResult.Skipped)
-        {
-            // Do not reward the user for skipping the ad.
-        }
-        else if (showResult == ShowResult.Failed)
-        {
-            Debug.LogWarning("The ad did not finish due to an error.");
-        }
+        SurfacingType type = GetSurfacingType(surfacingId);
+
+        unityAdsDidFinish.Invoke(type, showResult);
     }
 
     public void OnUnityAdsReady(string surfacingId)
     {
-        // If the ready Ad Unit or legacy Placement is rewarded, show the ad:
-        if (surfacingId == mySurfacingId)
-        {
-            // Optional actions to take when theAd Unit or legacy Placement becomes ready (for example, enable the rewarded ads button)
-        }
+        unityAdsReady.Invoke(GetSurfacingType(surfacingId));
     }
 
     public void OnUnityAdsDidError(string message)
     {
-        // Log the error.
+        unityAdsDidError.Invoke(message);
     }
 
     public void OnUnityAdsDidStart(string surfacingId)
     {
-        // Optional actions to take when the end-users triggers an ad.
+        unityAdsDidStart.Invoke(GetSurfacingType(surfacingId));
     }
 
-    // When the object that subscribes to ad events is destroyed, remove the listener:
     public void OnDestroy()
     {
         Advertisement.RemoveListener(this);
     }
+
+    [Serializable]
+    public class UnityAdsDidFinish : UnityEvent<SurfacingType, ShowResult> { };
 }
