@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CubeMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: d49c41d08aac3594b8a5b846b2c31e14, type: 3}
+  m_Shader: {fileID: 4800000, guid: 617cfd9ece588e54c8c1c92e32207c75, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -108,8 +108,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: 2800000, guid: d019a0cb66c7b244ab72638435b1fc82, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Triplanar_6f7cbbe019cb492daa329638f74ef0cd_Texture_1:
         m_Texture: {fileID: 2800000, guid: 283f897e4925411ebbaa758b4cb13fc2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -154,6 +162,7 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 0
+    - __dirty: 1
     m_Colors:
     - Color_60fb3ede9a2f451b99d69c36eab6154a: {r: 0, g: 0.7490196, b: 0.36078432, a: 0}
     - Color_dd9bdfde764c4c88a5915f2b448e4d5e: {r: 8, g: 8, b: 8, a: 0}

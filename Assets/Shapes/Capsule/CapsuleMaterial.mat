@@ -21,9 +21,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CapsuleMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: eb6e394a3a956284cbb75a153eb77672, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9a985efd46d11614eac2212574a39abe, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -89,6 +89,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: f34dd98f54143df4ba35fee759fe421d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -130,6 +138,7 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 0
+    - __dirty: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 0.042452812, b: 0.84232986, a: 0.78431374}
     - _Color: {r: 1, g: 0.042452812, b: 0.84232986, a: 0.78431374}

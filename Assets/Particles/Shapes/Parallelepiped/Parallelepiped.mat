@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Parallelepiped
-  m_Shader: {fileID: -6465566751694194690, guid: d891b1f343dff00419a40b0d38deebd3, type: 3}
+  m_Shader: {fileID: 4800000, guid: f41ba301d5853e445a2abc4b61ef148e, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -83,6 +83,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: ed9cbbfb49980db4fa35b11acc62d36e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -130,10 +138,13 @@ Material:
     - _SrcBlend: 5
     - _UVSec: 0
     - _ZWrite: 0
+    - __dirty: 0
+    - _isCorrect: 0
     m_Colors:
     - Color_850b011499514765afccb7299e252c01: {r: 576.5881, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color0: {r: 5.000555, g: 0.4651679, b: 22.21177, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

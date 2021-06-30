@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SphereMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 0ffa89306801e264bbaf3198ca955f60, type: 3}
+  m_Shader: {fileID: 4800000, guid: ee74c2765dbfca04aadd739f794cce54, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -89,6 +89,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: 2800000, guid: 0652a14b71d80ff44aa74645fa00da83, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -130,6 +138,7 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 0
+    - __dirty: 1
     m_Colors:
     - _BaseColor: {r: 0.043137252, g: 1, b: 0.17322625, a: 0.78431374}
     - _Color: {r: 0.043137252, g: 1, b: 0.17322625, a: 0.78431374}

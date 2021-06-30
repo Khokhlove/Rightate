@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pyramid
-  m_Shader: {fileID: -6465566751694194690, guid: db9aa5c7b41eba8499a5758f05c91033, type: 3}
+  m_Shader: {fileID: 4800000, guid: 40b8185ddadd10049abe323075efcdd1, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -83,6 +83,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: e0c2c4cf08ff1534baecbc5426d645bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -115,10 +123,13 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - __dirty: 0
+    - _isCorrect: 0
     m_Colors:
     - Color_48e54650ff7d4a6387caac6b1915b7f8: {r: 0.2633991, g: 8, b: 0, a: 0}
     - Color_b7fb65b3d2fc4d2c9588c9b2dd412025: {r: 766.9961, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color0: {r: 5.000555, g: 0.4651679, b: 22.21177, a: 1}
     - _Emission: {r: 10.680627, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
