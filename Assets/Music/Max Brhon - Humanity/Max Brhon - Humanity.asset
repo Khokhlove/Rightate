@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: Max Brhon - Humanity
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: c549a87fb438e1a4f8103f8b040a3d93, type: 3}
+  track: {fileID: 8300000, guid: 4e561bf9f2cb0a149921395e69cd467b, type: 3}
+  preview: {fileID: 8300000, guid: 1474e764f59e07143abdf07b245f477b, type: 3}
   warmupTime: 50.5
   songName: Humanity
   artistName: Max Brhon
   year: 2021
   image: {fileID: 21300000, guid: 473e75b9b3222194090bb3681309d627, type: 3}
+  highScore: 0

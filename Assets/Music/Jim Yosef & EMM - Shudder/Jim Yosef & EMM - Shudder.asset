@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: Jim Yosef & EMM - Shudder
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: cbf70f452f3365d498be4fba07089107, type: 3}
+  track: {fileID: 8300000, guid: 0ffd094b73622f94fa06846a7a51e730, type: 3}
+  preview: {fileID: 8300000, guid: 93f041c337764c6439bfa9373dafc80b, type: 3}
   warmupTime: 56.35
   songName: Shudder
   artistName: Jim Yosef & EMM

@@ -27,7 +27,6 @@ public class AudioController : MonoBehaviour
     {
         SetBackgroundMusic(track);
         music.Play();
-        //timer = CustomTimer.Timer.GetInstance();
         warmupTimer.time = track.warmupTime;
         timer.time = music.clip.length - track.warmupTime;
     }

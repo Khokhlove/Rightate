@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: Syn Cole - Feel Good
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 721db6a778542d343bfc4effb61cd909, type: 3}
+  track: {fileID: 8300000, guid: e2d0b6282d516ef4194b775cde942085, type: 3}
+  preview: {fileID: 8300000, guid: 2b3dbdc3702f1884f9fe5027bdab7b7a, type: 3}
   warmupTime: 46
   songName: Feel Good
   artistName: Syn Cole

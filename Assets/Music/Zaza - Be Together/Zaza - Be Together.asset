@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: Zaza - Be Together
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 10c9ca27834dad040bac83afa9663a7e, type: 3}
+  track: {fileID: 8300000, guid: 3b300f38df1d9e244b71a1d3fb73b1c3, type: 3}
+  preview: {fileID: 8300000, guid: 2ae568d5a67e7c44bbb163874bfd727a, type: 3}
   warmupTime: 59.5
   songName: Be Together
   artistName: Zaza

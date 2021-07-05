@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: The Chaos Agent - Breaking The Silence
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: bb0e65de73bc91c4c939ce348d53d9c1, type: 3}
+  track: {fileID: 8300000, guid: 79c567821fa1cc544b0d16ab4710a2b6, type: 3}
+  preview: {fileID: 8300000, guid: da79d17da5f0122489e1cb13c7e7c27b, type: 3}
   warmupTime: 22
   songName: Breaking The Silence
   artistName: The Chaos Agent
   year: 2014
   image: {fileID: 21300000, guid: 0d93615b0211b0c4fa49781f31e6ed4e, type: 3}
+  highScore: 0

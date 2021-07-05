@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AudioTrack : ScriptableObject
 { 
     public AudioClip track;
+    public AudioClip preview;
     public float warmupTime;
     public string songName;
     public string artistName;

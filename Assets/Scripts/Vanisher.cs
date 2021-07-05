@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using UnityEngine.SceneManagement;
 
 public class Vanisher : Singleton<Vanisher>
@@ -34,6 +35,16 @@ public class Vanisher : Singleton<Vanisher>
         }));
     }
 
+    public void InstantShow()
+    {
+        material.color = startColor;
+    }
+
+    public void InstantHide()
+    {
+        material.color = targetColor;
+    }
+
     IEnumerator _Hide(Action callback)
     {
         float lerp = 0;
@@ -61,13 +72,31 @@ public class Vanisher : Singleton<Vanisher>
     {
         Hide(() =>
         {
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            LevelLoader.GetInstance().LoadLevel();
+
+            StartCoroutine(LoadClip(() =>
+            {
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                LevelLoader.GetInstance().LoadLevel();
+            }));
         });
+
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
             Show(() => { });
+        }
+
+        IEnumerator LoadClip(Action callback)
+        {
+            AudioClip clip = MusicContainer.GetInstance().selected.track;
+            clip.LoadAudioData();
+            
+            while(clip.loadState == AudioDataLoadState.Loading)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
+            callback();
         }
     }
 
@@ -81,7 +110,6 @@ public class Vanisher : Singleton<Vanisher>
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            Show(() => { });
         }
     }
 

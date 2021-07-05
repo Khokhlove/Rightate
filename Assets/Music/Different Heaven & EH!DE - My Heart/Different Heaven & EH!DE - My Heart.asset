@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: Different Heaven & EH!DE - My Heart
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: da462d3fd35fbc24398ed9ec81235df9, type: 3}
+  track: {fileID: 8300000, guid: c8bc7d2efe83b324db1ee822976e110a, type: 3}
+  preview: {fileID: 8300000, guid: 23bb823dc5076fe44a223eca6c09bcab, type: 3}
   warmupTime: 32.8
   songName: My Heart
   artistName: Different Heaven & EH!DE

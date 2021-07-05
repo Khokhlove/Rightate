@@ -32,8 +32,8 @@ public class MusicSelector : MonoBehaviour
                 SetDefaultBackgrounds();
                 trackInstance.SetBackgroundColor(selectionColor);
                 trackInstance.SetSprite(selectionSprite);
-                backgroundMusic.clip = at.track;
-                backgroundMusic.time = at.warmupTime;
+                backgroundMusic.clip = at.preview;
+                //backgroundMusic.time = at.warmupTime;
                 backgroundMusic.Play();
             });
 

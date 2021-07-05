@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: NIVIRO - Dancin
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 294f4e395df2f2c4fb1e10a1118870cf, type: 3}
+  track: {fileID: 8300000, guid: dab0b94cf2d205d44bf08df503c75d89, type: 3}
+  preview: {fileID: 8300000, guid: 45d40484ac9474144bfb06c33dea3178, type: 3}
   warmupTime: 37.9
   songName: Dancin
   artistName: NIVIRO

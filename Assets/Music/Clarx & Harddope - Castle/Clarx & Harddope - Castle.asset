@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: Clarx & Harddope - Castle
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 6c8c729c18da3cd46aadf00a361a4ac8, type: 3}
+  track: {fileID: 8300000, guid: b755a15557c32ec4a82710602232340d, type: 3}
+  preview: {fileID: 8300000, guid: c5ea80b98b235844ba3047c1327560f1, type: 3}
   warmupTime: 34.5
   songName: Castle
   artistName: Clarx & Harddope

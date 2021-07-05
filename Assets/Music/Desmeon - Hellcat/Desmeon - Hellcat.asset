@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045856b785e2df74b860e37857565401, type: 3}
   m_Name: Desmeon - Hellcat
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 4bfcc003019530d499b44514f176f67d, type: 3}
+  track: {fileID: 8300000, guid: 38fcac8f4dc98ee4292b982a445a9381, type: 3}
+  preview: {fileID: 8300000, guid: 265da8d6a483d084aa11488881a90306, type: 3}
   warmupTime: 11.7
   songName: Hellcat
   artistName: Desmeon
