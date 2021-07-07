@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
@@ -60,6 +61,8 @@ public class GameController : MonoBehaviour
     {
         ClearDirectionShapes();
         particleWrapper = new GameObject("[ParticleWrapper]");
+        particleWrapper.AddComponent<SortingGroup>().sortingOrder = -1;
+
         var directions = Enum.GetValues(typeof(PlayerController.Direction));
 
         PlayerController.Direction correctDirection;

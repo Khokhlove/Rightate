@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 959.75}
-  m_SizeDelta: {x: 1080, y: 1919.5}
+  m_AnchoredPosition: {x: 0, y: 639.8333}
+  m_SizeDelta: {x: 1080, y: 1279.6666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &54534622
 MonoBehaviour:
@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359947097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 775fbd3ad0f4a024fabb711439764b4a, type: 3}
   m_Name: 
@@ -3406,6 +3406,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 911543037}
+  trackLoaded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &946939239
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,6 +3495,42 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1769857857}
+    - target: {fileID: 3829444382325399863, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567562709404272129, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567562709404272129, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567562709404272129, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567562709404272129, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567562709538225415, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567562709538225415, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567562709538225415, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567562709538225415, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4567562711280900474, guid: 86008750a4eb1a04592f2b2b3f052c2f, type: 3}
       propertyPath: m_Name
       value: PlayingTrack
@@ -4635,8 +4674,8 @@ MonoBehaviour:
   NumberOfPasses: 3
   BlurAmount: 1
   BloomColor: {r: 1, g: 1, b: 1, a: 1}
-  BloomAmount: 2
-  BloomThreshold: 0.1
+  BloomAmount: 4
+  BloomThreshold: 0.5
   material: {fileID: 2100000, guid: 6ced9dc3165b9bd439f57ddcee8abac6, type: 2}
 --- !u!1 &1384482478
 GameObject:
@@ -4726,6 +4765,7 @@ GameObject:
   - component: {fileID: 1408335355}
   - component: {fileID: 1408335354}
   - component: {fileID: 1408335353}
+  - component: {fileID: 1408335358}
   m_Layer: 0
   m_Name: '[Vanisher]'
   m_TagString: Untagged
@@ -4824,6 +4864,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -70, y: 0, z: 0}
+--- !u!210 &1408335358
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408335352}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
 --- !u!1 &1420128558
 GameObject:
   m_ObjectHideFlags: 0
