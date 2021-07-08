@@ -8,13 +8,33 @@ public class LevelLoader : Singleton<LevelLoader>
 {
     public static void LoadLevel(int levelId)
     {
-        SceneManager.LoadScene(levelId, LoadSceneMode.Single);
+        GetInstance().StartCoroutine(_LoadLevel(levelId));
+    }
+
+    private static IEnumerator _LoadLevel(int levelId)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelId, LoadSceneMode.Single);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
     }
 
     public void LoadLevel()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
         SceneManager.sceneLoaded += OnGameLevelLoaded;
+        StartCoroutine(_LoadGameLevel());
+    }
+
+    IEnumerator _LoadGameLevel()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+
+        while (!operation.isDone)
+        {
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     void OnGameLevelLoaded(Scene scene, LoadSceneMode loadMode)

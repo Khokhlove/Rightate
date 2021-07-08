@@ -73,9 +73,8 @@ public class Vanisher : Singleton<Vanisher>
     public void VanishAndLoad()
     {
         cassette.SetActive(true);
-        Hide(() =>
+        Hide(() => 
         {
-
             StartCoroutine(LoadClip(() =>
             {
                 SceneManager.sceneLoaded += OnSceneLoaded;
