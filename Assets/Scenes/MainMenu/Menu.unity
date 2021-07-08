@@ -5180,6 +5180,9 @@ MonoBehaviour:
   startAlpha: 0
   targetAlpha: 1
   cassette: {fileID: 1681431923}
+  animationTimer:
+  - {fileID: 644266973}
+  - {fileID: 272487226}
 --- !u!223 &1408335354
 Canvas:
   m_ObjectHideFlags: 0
