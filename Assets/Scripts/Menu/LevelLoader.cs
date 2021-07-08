@@ -33,7 +33,7 @@ public class LevelLoader : Singleton<LevelLoader>
 
         while (!operation.isDone)
         {
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
     }
 
