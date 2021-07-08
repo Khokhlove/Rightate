@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 97d6b9c0b3c48ce4b8aa4af8e97e9c55, type: 3}
+        m_Texture: {fileID: 2800000, guid: df7ba01fda5a2d342a078e060040fc3d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -86,7 +86,7 @@ Material:
     - _ZWrite: 0
     - __dirty: 0
     m_Colors:
-    - _AlphaColor: {r: 0, g: 0, b: 0, a: 0.64705884}
+    - _AlphaColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
