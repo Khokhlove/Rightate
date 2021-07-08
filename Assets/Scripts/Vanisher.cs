@@ -7,16 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class Vanisher : Singleton<Vanisher>
 {
-    Material material;
+    CanvasGroup canvasGroup;
 
-    public Color startColor;
-    public Color targetColor;
+    [Range(0, 1)] public float startAlpha;
+    [Range(0, 1)] public float targetAlpha;
 
     public override void Awake()
     {
         base.Awake();
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        material = meshRenderer.material;
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void Hide(Action callback)
@@ -37,12 +36,12 @@ public class Vanisher : Singleton<Vanisher>
 
     public void InstantShow()
     {
-        material.color = startColor;
+        canvasGroup.alpha = startAlpha;
     }
 
     public void InstantHide()
     {
-        material.color = targetColor;
+        canvasGroup.alpha = targetAlpha;
     }
 
     IEnumerator _Hide(Action callback)
@@ -50,7 +49,7 @@ public class Vanisher : Singleton<Vanisher>
         float lerp = 0;
         while (lerp < 1)
         {
-            material.color = Color.Lerp(startColor, targetColor, lerp);
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, lerp);
             lerp += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
@@ -61,7 +60,7 @@ public class Vanisher : Singleton<Vanisher>
         float lerp = 0;
         while (lerp < 1)
         {
-            material.color = Color.Lerp(targetColor, startColor, lerp);
+            canvasGroup.alpha = Mathf.Lerp(targetAlpha, startAlpha, lerp);
             lerp += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
