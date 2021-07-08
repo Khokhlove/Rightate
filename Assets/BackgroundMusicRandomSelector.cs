@@ -12,6 +12,7 @@ public class BackgroundMusicRandomSelector : MonoBehaviour
     void Start()
     {
         vanisher = Vanisher.GetInstance();
+        vanisher.cassette.SetActive(false);
         vanisher.InstantHide();
         trackLoaded.AddListener(OnTrackLoaded);
         StartCoroutine(SetRandomTrack());

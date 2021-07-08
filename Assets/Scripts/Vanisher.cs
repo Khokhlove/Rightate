@@ -8,9 +8,12 @@ using UnityEngine.SceneManagement;
 public class Vanisher : Singleton<Vanisher>
 {
     CanvasGroup canvasGroup;
-
+    
     [Range(0, 1)] public float startAlpha;
     [Range(0, 1)] public float targetAlpha;
+
+    public GameObject cassette;
+
 
     public override void Awake()
     {
@@ -69,6 +72,7 @@ public class Vanisher : Singleton<Vanisher>
 
     public void VanishAndLoad()
     {
+        cassette.SetActive(true);
         Hide(() =>
         {
 
@@ -82,7 +86,7 @@ public class Vanisher : Singleton<Vanisher>
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            Show(() => { });
+            Show(() => { cassette.SetActive(false); });
         }
 
         IEnumerator LoadClip(Action callback)
@@ -101,6 +105,7 @@ public class Vanisher : Singleton<Vanisher>
 
     public void VanishAndLoadMenu()
     {
+        cassette.SetActive(false);
         Hide(() =>
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
