@@ -42,7 +42,11 @@ public class AnimationTimerImage : MonoBehaviour
 
     TimerGame t = new TimerGame();
 
-    public void Start()
+    void OnEnable()
+    {
+        _Start();
+    }
+    void _Start()
     {
         image = imageObject.GetComponent<Image>();
         rectTranform = imageObject.GetComponent<RectTransform>();

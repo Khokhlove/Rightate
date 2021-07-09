@@ -13,7 +13,6 @@ public class Vanisher : Singleton<Vanisher>
     [Range(0, 1)] public float targetAlpha;
 
     public GameObject cassette;
-    public AnimationTimerImage[] animationTimer;
 
     public override void Awake()
     {
@@ -23,10 +22,6 @@ public class Vanisher : Singleton<Vanisher>
 
     public void Hide(Action callback)
     {
-        for (int i = 0; i < animationTimer.Length; i++)
-        {
-            animationTimer[i].Start();
-        }
         StartCoroutine(_Hide(() =>
         {
             callback();

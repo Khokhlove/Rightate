@@ -5061,7 +5061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4faf46d9ae41f1c46892997a804c20af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfPasses: 3
+  NumberOfPasses: 4
   BlurAmount: 1
   BloomColor: {r: 1, g: 1, b: 1, a: 1}
   BloomAmount: 4
@@ -5180,9 +5180,6 @@ MonoBehaviour:
   startAlpha: 0
   targetAlpha: 1
   cassette: {fileID: 1681431923}
-  animationTimer:
-  - {fileID: 644266973}
-  - {fileID: 272487226}
 --- !u!223 &1408335354
 Canvas:
   m_ObjectHideFlags: 0
